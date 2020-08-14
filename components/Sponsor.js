@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import { getCurrentDay } from 'lib/helpers'
 
 const Wrapper = (props) => (
-    <aside role="complementary" className={'sponsor px-4 py-3 mt-10 -mb-6 rounded-md' + ' bg-' + props.day}>
-        <div className="text-2xl font-bold">{props.children}</div>
-        <p className="text-xs text-right mb-0"><Link href="/sponsorships">Learn more about our sponsorships</Link></p>
+    <aside role="complementary" className={'sponsor px-4 py-5 mb-10 rounded-md text-center relative' + ' bg-' + props.day}>
+        <div className="text-2xl font-bold leading-none">{props.children}</div>
+        <p className="text-xs text-right mb-0 absolute bottom-0 right-0 py-1 px-2"><Link href="/sponsorships">Learn more about our sponsorships</Link></p>
     </aside>
 )
 
@@ -33,6 +34,10 @@ const Saturday = () => (
 
 const Sunday = () => (
     <>This is a Sunday sponsor.</>
+)
+
+const General = () => (
+    <>This is a general sponsor.</>
 )
 
 export default function Sponsor(props) {
@@ -80,7 +85,11 @@ export default function Sponsor(props) {
             </Wrapper> 
         )
     } else {
-        return null
+        return (
+            <Wrapper day={getCurrentDay()}>
+                <General/>
+            </Wrapper> 
+        )
     }
     
 }

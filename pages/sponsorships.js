@@ -1,8 +1,8 @@
 import MainLayout from 'layouts/MainLayout'
-import { day } from 'utils/getDay'
+import { getCurrentDay } from 'lib/helpers'
 
 const Sponsorships = (props) => (
-    <MainLayout day={day}>
+    <MainLayout day={getCurrentDay()}>
         <h1>Sponsorships</h1>
     </MainLayout>
 )

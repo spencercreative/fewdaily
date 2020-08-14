@@ -1,12 +1,12 @@
 import MainLayout from 'layouts/MainLayout'
-import { day } from 'utils/getDay'
+import { getCurrentDay } from 'lib/helpers'
 import { getAllPosts } from 'lib/api'
 import PostList from 'components/PostList'
 
 export default function Home({ allPosts }) {
 
     return (
-        <MainLayout day={day}>
+        <MainLayout day={getCurrentDay()}>
             {allPosts.length > 0 && <PostList posts={allPosts}/>}
         </MainLayout>
     )

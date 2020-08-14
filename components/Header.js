@@ -31,7 +31,7 @@ function Header(props) {
     return (
         <header role="banner" className={'flex w-full px-wrap items-center text-2xl py-2 font-bold' + ' ' + props.day}>
 
-            <button className="flex items-center font-bold inline-block leading-none transition-all">
+            <button className="flex items-center font-bold leading-none transition-all">
                 <FiSearch/><span className="ml-2 hidden md:block">Search</span>
             </button>
 
@@ -39,7 +39,7 @@ function Header(props) {
                 <Link href="/"><a className="inline-block leading-none transition-all">Front-End Web Daily</a></Link>
             </div>
 
-            <button id="social-toggle" className="flex items-center font-bold inline-block leading-none transition-all" onClick={SocialToggle}>
+            <button id="social-toggle" className="flex items-center font-bold leading-none transition-all" onClick={SocialToggle}>
                 @<span className="hidden md:block">fewdaily</span>
             </button>
 

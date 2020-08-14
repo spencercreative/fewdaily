@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
 const Wrapper = (props) => (
-    <aside role="complementary" className={'sponsor px-4 py-3 my-4 rounded-md' + ' bg-' + props.day}>
+    <aside role="complementary" className={'sponsor px-4 py-3 mt-10 -mb-6 rounded-md' + ' bg-' + props.day}>
         <div className="text-2xl font-bold">{props.children}</div>
-        <p className="text-sm text-right"><Link href="/sponsorships">Learn more about our sponsorships</Link></p>
+        <p className="text-xs text-right mb-0"><Link href="/sponsorships">Learn more about our sponsorships</Link></p>
     </aside>
 )
 
@@ -12,7 +12,7 @@ const Monday = () => (
 )
 
 const Tuesday = () => (
-    <>This is a Tuesday sponsor.</>
+    <>This is a <a>Tuesday</a> sponsor.</>
 )
 
 const Wednesday = () => (

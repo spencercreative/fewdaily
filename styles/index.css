@@ -47,6 +47,20 @@ p {
     @apply mb-8;
 }
 
+hr {
+    @apply border-gray;
+    @apply my-8;
+}
+
+p > code {
+    @apply bg-gray;
+    @apply text-lg;
+    @apply px-2;
+    @apply py-1;
+    @apply bg-opacity-50;
+    @apply rounded-md;
+}
+
 pre {
     @apply bg-gray;
     @apply p-4;

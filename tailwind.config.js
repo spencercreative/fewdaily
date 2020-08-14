@@ -15,11 +15,11 @@ module.exports = {
         transparent: "transparent",
         black: "#000",
         blue: '#C6E9FB',
-        orange: '#FDBCAF',
+        orange: '#FCD5B1',
         green: '#96EDD3',
         red: '#FFADAF',
         yellow: '#FFF9A5',
-        purple: '#CAB3E5',
+        purple: '#E0D1EF',
         gray: '#DEE1E3',
         slate: '#282828',
         white: '#FFFFFF'

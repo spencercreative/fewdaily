@@ -17,6 +17,7 @@
     "date-fns": "^2.15.0",
     "front-matter": "^4.0.2",
     "gray-matter": "^4.0.2",
+    "highlight.js": "^10.1.2",
     "next": "^9.5.2",
     "next-mdx-enhanced": "^3.1.0",
     "next-on-netlify": "^2.3.2",

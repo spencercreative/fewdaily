@@ -1,0 +1,39 @@
+{
+  "name": "fewdaily",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next-on-netlify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mdx-js/loader": "^1.6.16",
+    "@next/mdx": "^9.5.2",
+    "date-fns": "^2.15.0",
+    "front-matter": "^4.0.2",
+    "gray-matter": "^4.0.2",
+    "next": "^9.5.2",
+    "next-mdx-enhanced": "^3.1.0",
+    "next-on-netlify": "^2.3.2",
+    "react": "^16.13.1",
+    "react-animate-on-scroll": "^2.1.5",
+    "react-dom": "^16.13.1",
+    "react-gtm-module": "^2.0.10",
+    "react-icons": "^3.10.0",
+    "react-netlify-form": "^2.1.5",
+    "remark": "^12.0.1",
+    "remark-html": "^12.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "eslint": "^7.6.0",
+    "eslint-plugin-react": "^7.20.6",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.6.2"
+  }
+}

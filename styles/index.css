@@ -1,0 +1,116 @@
+@import url('https://use.typekit.net/kis6ina.css');
+
+@tailwind base;
+
+html {
+    font-size: 18px;
+}
+
+body {
+    @apply font-sans;
+    @apply text-xl;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-sans;
+    @apply font-bold;
+    @apply mb-4;
+}
+
+h1 {
+    @apply text-6xl;
+}
+
+h2 {
+    @apply text-5xl;
+}
+
+h3 {
+    @apply text-4xl;
+}
+
+h4 {
+    @apply text-3xl;
+}
+
+h5 {
+    @apply text-2xl;
+}
+
+h6 {
+    @apply text-xl;
+}
+
+p {
+    @apply mb-8;
+}
+
+a,
+button {
+    @apply bg-transparent;
+    @apply cursor-pointer;
+    @apply duration-300;
+    @apply relative;
+    @apply z-0;
+}
+
+a:before,
+button:before {
+    bottom: 0;
+    content: "";
+    height: 5px;
+    position: absolute;
+    width: 100%;
+    transition: height ease 300ms;
+    z-index: -1;
+}
+
+a:hover:before,
+button:hover:before,
+a:focus:before,
+button:focus:before {
+    height: 40%;
+}
+
+.bg-monday, .monday a:before, .monday button:before {
+    @apply bg-blue;
+}
+
+.bg-tuesday, .tuesday a:before, .tuesday button:before {
+    @apply bg-red;
+}
+
+.bg-wednesday, .wednesday a:before, .wednesday button:before {
+    @apply bg-purple;
+}
+
+.bg-thursday, .thursday a:before, .thursday button:before {
+    @apply bg-orange;
+}
+
+.bg-friday, .friday a:before, .friday button:before {
+    @apply bg-green;
+}
+
+.bg-saturday, .saturday a:before, .saturday button:before {
+    @apply bg-yellow;
+}
+
+.bg-sunday, .sunday a:before, .sunday button:before {
+    @apply bg-gray;
+}
+
+.sponsor a:before, .sponsor button:before {
+    @apply bg-white;
+}
+
+#social-nav {
+    transform: translate(100%,0)
+}
+
+#social-nav.active {
+    transform: translate(0,0)
+}
+
+@tailwind components;
+@tailwind utilities;

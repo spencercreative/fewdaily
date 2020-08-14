@@ -1,4 +1,4 @@
-import MainLayout from 'layouts/Main'
+import MainLayout from 'layouts/MainLayout'
 import { day } from 'utils/getDay'
 
 const Sponsorships = (props) => (

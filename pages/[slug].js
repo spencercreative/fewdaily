@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import ErrorPage from 'next/error'
-import MainLayout from 'layouts/main'
+import MainLayout from 'layouts/MainLayout'
 import Sponsor from 'components/Sponsor'
 import Head from 'next/head'
 import { getPostBySlug, getAllPosts } from 'lib/api'

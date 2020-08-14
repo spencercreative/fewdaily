@@ -1,4 +1,4 @@
-import MainLayout from 'layouts/Main'
+import MainLayout from 'layouts/MainLayout'
 import { day } from 'utils/getDay'
 import { getAllPosts } from 'lib/api'
 import PostList from 'components/PostList'

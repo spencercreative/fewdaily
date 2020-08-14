@@ -74,7 +74,6 @@ a,
 button {
     @apply bg-transparent;
     @apply cursor-pointer;
-    @apply duration-300;
     @apply relative;
     @apply z-0;
 }
@@ -136,6 +135,11 @@ button:focus:before {
 
 #social-nav.active {
     transform: translate(0,0)
+}
+
+#assets .instagram h2 {
+    @apply my-6;
+    @apply text-3xl;
 }
 
 @tailwind components;

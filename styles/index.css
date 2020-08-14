@@ -15,6 +15,8 @@ h1, h2, h3, h4, h5, h6 {
     @apply font-sans;
     @apply font-bold;
     @apply mb-4;
+    @apply mt-12;
+    @apply leading-none;
 }
 
 h1 {
@@ -45,6 +47,15 @@ p {
     @apply mb-8;
 }
 
+pre {
+    @apply bg-gray;
+    @apply p-4;
+    @apply mb-8;
+    @apply rounded-md;
+    @apply text-sm;
+    @apply bg-opacity-50;
+}
+
 a,
 button {
     @apply bg-transparent;
@@ -56,13 +67,14 @@ button {
 
 a:before,
 button:before {
-    bottom: 0;
     content: "";
     height: 5px;
-    position: absolute;
-    width: 100%;
     transition: height ease 300ms;
     z-index: -1;
+    @apply absolute;
+    @apply bottom-0;
+    @apply w-full;
+    @apply rounded-md;
 }
 
 a:hover:before,
@@ -72,31 +84,31 @@ button:focus:before {
     height: 40%;
 }
 
-.bg-monday, .monday a:before, .monday button:before {
+.bg-monday, .monday a:before, .monday button:before, main .monday a:before, main .monday button:before {
     @apply bg-blue;
 }
 
-.bg-tuesday, .tuesday a:before, .tuesday button:before {
+.bg-tuesday, .tuesday a:before, .tuesday button:before, main .tuesday a:before, main .tuesday button:before {
     @apply bg-red;
 }
 
-.bg-wednesday, .wednesday a:before, .wednesday button:before {
+.bg-wednesday, .wednesday a:before, .wednesday button:before, main .wednesday a:before, main .wednesday button:before {
     @apply bg-purple;
 }
 
-.bg-thursday, .thursday a:before, .thursday button:before {
+.bg-thursday, .thursday a:before, .thursday button:before, main .thursday a:before, main .thursday button:before {
     @apply bg-orange;
 }
 
-.bg-friday, .friday a:before, .friday button:before {
+.bg-friday, .friday a:before, .friday button:before, main .friday a:before, main .friday button:before {
     @apply bg-green;
 }
 
-.bg-saturday, .saturday a:before, .saturday button:before {
+.bg-saturday, .saturday a:before, .saturday button:before, main .saturday a:before, main .saturday button:before {
     @apply bg-yellow;
 }
 
-.bg-sunday, .sunday a:before, .sunday button:before {
+.bg-sunday, .sunday a:before, .sunday button:before, main .sunday a:before, main .sunday button:before {
     @apply bg-gray;
 }
 

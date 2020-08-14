@@ -1,10 +1,26 @@
 import MainLayout from 'layouts/Main'
 import { day } from 'utils/getDay'
+import { getAllPosts } from 'lib/api'
+import PostList from 'components/PostList'
 
-const Home = (props) => (
-    <MainLayout day={day}>
-        <a>Home page</a>
-    </MainLayout>
-)
+export default function Home({ allPosts }) {
 
-export default Home
+    return (
+        <MainLayout day={day}>
+            {allPosts.length > 0 && <PostList posts={allPosts}/>}
+        </MainLayout>
+    )
+}
+
+export async function getStaticProps() {
+    const allPosts = getAllPosts([
+        'title',
+        'slug',
+        'content',
+        'tags',
+    ])
+  
+    return {
+      props: { allPosts },
+    }
+  }

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { theNamedDay, stringToSlug, makeExcerpt } from 'lib/helpers'
+import { theNamedDay, stringToSlug, makeExcerpt, dayTitle } from 'lib/helpers'
 
 export default function PostList({ posts }) {
     return (
@@ -8,9 +8,12 @@ export default function PostList({ posts }) {
                 <li className={'flex flex-col md:flex-row justify-between md:items-center gap-4 text-xl py-3 border-b border-solid border-gray' + ' ' + theNamedDay(post.slug)} key={post.slug}>
                     <div>
                         <p className="mb-0 text-xs font-bold">{post.slug}</p>
-                        <Link href={'/' + post.slug}><a className="font-bold text-2xl">{post.title}</a></Link>
-                        { theNamedDay(post.slug) !== 'tuesday' &&
-                        <p className="mb-0 text-base">{makeExcerpt(post.content)}</p>
+                        <Link href={'/' + post.slug}><a className="font-black text-2xl">{dayTitle(post.slug)}</a></Link>
+                        { theNamedDay(post.slug) !== 'tuesday' ? (
+                            <p className="mb-0 text-base">{makeExcerpt(post.content)}</p>
+                        ) : (
+                            <p className="mb-0 text-base">{post.excerpt}</p>
+                        )
                         }
                     </div>
                     {post.tags !== undefined &&

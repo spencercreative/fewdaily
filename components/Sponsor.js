@@ -3,7 +3,7 @@ import { getCurrentDay } from 'lib/helpers'
 
 const Wrapper = (props) => (
     <aside role="complementary" className={'sponsor px-4 py-8 mb-10 rounded-md text-center relative' + ' bg-' + props.day}>
-        <div className="text-2xl font-bold leading-none">{props.children}</div>
+        <div className="text-xl font-black leading-none">{props.children}</div>
         <p className="text-xs text-right mb-0 absolute bottom-0 right-0 py-1 px-2"><Link href="/sponsorships"><a>Learn more about our sponsorships</a></Link></p>
     </aside>
 )
@@ -17,27 +17,27 @@ const Tuesday = () => (
 )
 
 const Wednesday = () => (
-    <>This is a Wednesday sponsor.</>
+    <>This is a <a>Wednesday</a> sponsor.</>
 )
 
 const Thursday = () => (
-    <>This is a Thursday sponsor.</>
+    <>This is a <a>Thursday</a> sponsor.</>
 )
 
 const Friday = () => (
-    <>This is a Friday sponsor.</>
+    <>This is a <a>Friday</a> sponsor.</>
 )
 
 const Saturday = () => (
-    <>This is a Saturday sponsor.</>
+    <>This is a <a>Saturday</a> sponsor.</>
 )
 
 const Sunday = () => (
-    <>This is a Sunday sponsor.</>
+    <>This is a <a>Sunday</a> sponsor.</>
 )
 
 const General = () => (
-    <>This is a general sponsor.</>
+    <>This is a <a>general</a> sponsor.</>
 )
 
 export default function Sponsor(props) {

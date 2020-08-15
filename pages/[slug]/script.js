@@ -23,17 +23,13 @@ export default function Post({post}) {
                     <article className="max-w-4xl mx-auto">
                         <Head>
                             <title>
-                                {post.slug} Audio Script | Front-End Web Daily
+                                Audio Script for {theDateString(post.slug)} | Front-End Web Daily
                             </title>
                             <meta name="description" content={makeExcerpt(post.content)} />
                         </Head>
-
-                        <div className="text-center text-sm">
-                            <Link href={'/' + post.slug}><a>Back to {post.slug} post</a></Link>
-                        </div>
                         
                         <header>
-                            <p className="mb-0 font-bold text-lg">{post.slug}</p>
+                            <p className="mb-0 font-bold text-sm"><Link href={'/' + post.slug}><a>{theDateString(post.slug)}</a></Link></p>
                             <h1 className="my-0 uppercase">Audio Script</h1>
                         </header>
 

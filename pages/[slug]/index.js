@@ -7,7 +7,7 @@ import Sponsor from 'components/Sponsor'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import { socialShares } from 'lib/socialShares'
 import markdownToHtml from 'lib/markdownToHtml'
-import { theNamedDay, stringToSlug, makeExcerpt, dayTitle } from 'lib/helpers'
+import { theNamedDay, stringToSlug, makeExcerpt, dayTitle, theDateString } from 'lib/helpers'
 import { FiFacebook, FiLinkedin, FiTwitter, FiMail, FiCopy, FiMic, FiPrinter } from 'react-icons/fi'
 
 const SocialShare = (props) => (
@@ -65,7 +65,7 @@ export default function Post({post}) {
                     <article className="max-w-4xl mx-auto">
                         <Head>
                             <title>
-                                {dayTitle(post.slug)} | {post.slug} | Front-End Web Daily
+                                {dayTitle(post.slug)} | {theDateString(post.slug)} | Front-End Web Daily
                             </title>
                             <meta
                                 name="description"
@@ -73,7 +73,7 @@ export default function Post({post}) {
                         </Head>
                         
                         <header>
-                            <p className="mb-0 font-bold text-lg">{post.slug}</p>
+                            <p className="mb-0 font-bold text-sm">{theDateString(post.slug)}</p>
                             <h1 className="my-0 uppercase">{dayTitle(post.slug)}</h1>
                             {post.tags !== undefined &&
                                 <p>

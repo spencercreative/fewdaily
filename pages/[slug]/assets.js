@@ -6,7 +6,7 @@ import ErrorPage from 'next/error'
 import MainLayout from 'layouts/MainLayout'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import markdownToHtml from 'lib/markdownToHtml'
-import { theNamedDay, splitSections, makeExcerpt, dayTitle } from 'lib/helpers'
+import { theNamedDay, splitSections, makeExcerpt, dayTitle, theDateString } from 'lib/helpers'
 
 function SocialImage(props) {
     const cornerStyles = [ 'absolute', 'py-8', 'px-10', 'text-2xs' ]
@@ -16,7 +16,7 @@ function SocialImage(props) {
             <RenderAsImage>
                 <div className={'instagram p-10 flex font-bold text-sm relative' + ' bg-' + theNamedDay([props.post.slug])} style={{width: props.width, height: props.height}}>
                     <span className={'top-0 left-0 uppercase' + ' ' + cornerStyles.join(' ')}>Front-End Web Daily</span>
-                    <span className={'top-0 right-0 uppercase' + ' ' + cornerStyles.join(' ')}>{props.post.slug}</span>
+                    <span className={'top-0 right-0 uppercase' + ' ' + cornerStyles.join(' ')}>{theDateString(props.post.slug)}</span>
                     <div className={props.className !== undefined && props.className}>
                         {props.children}
                     </div>
@@ -41,17 +41,18 @@ export default function Assets({post}) {
                 <div>Loading...</div>
             ) : (
                 <MainLayout day={theNamedDay([post.slug])}>
-                    <article id="assets">
+                    <article id="assets" className="max-w-4xl mx-auto">
                         <Head>
                             <title>
-                                {post.slug} Assets | Front-End Web Daily
+                                Assets for {theDateString(post.slug)} | Front-End Web Daily
                             </title>
                             <meta name="description" content={makeExcerpt(post.content)} />
                         </Head>
-
-                        <div className="text-center text-sm">
-                            <Link href={'/' + post.slug}><a>Back to {post.slug} post</a></Link>
-                        </div>
+                        
+                        <header>
+                            <p className="mb-0 font-bold text-sm"><Link href={'/' + post.slug}><a>{theDateString(post.slug)}</a></Link></p>
+                            <h1 className="my-0 uppercase">Assets</h1>
+                        </header>
                         
                         <h3 className="text-center">Square</h3>
 

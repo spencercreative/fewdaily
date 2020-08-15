@@ -15,30 +15,31 @@ h1, h2, h3, h4, h5, h6 {
     @apply mb-4;
     @apply mt-12;
     @apply leading-none;
+    hyphens: auto;
 }
 
 h1 {
-    @apply text-6xl;
-}
-
-h2 {
     @apply text-5xl;
 }
 
-h3 {
+h2 {
     @apply text-4xl;
 }
 
-h4 {
+h3 {
     @apply text-3xl;
 }
 
-h5 {
+h4 {
     @apply text-2xl;
 }
 
-h6 {
+h5 {
     @apply text-xl;
+}
+
+h6 {
+    @apply text-lg;
 }
 
 p {
@@ -195,6 +196,7 @@ button {
 #assets h2 {
     @apply my-6;
     @apply text-2xl;
+    hyphens: none;
 }
 
 @tailwind components;

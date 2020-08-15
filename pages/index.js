@@ -11,6 +11,7 @@ export default function Home({ allPosts }) {
         <MainLayout day={getCurrentDay()}>
             <Head>
                 <title>Front-End Web Daily | News, tips and more delivered daily</title>
+                <meta name="description" content="Front-end news, tips, and more delivered daily across the web." />
             </Head>
             <Sponsor/>
             {allPosts.length > 0 && <PostList posts={allPosts}/>}

@@ -29,9 +29,9 @@ function SocialToggle() {
 function Header(props) {
 
     return (
-        <header role="banner" className={'flex w-full px-wrap items-center text-2xl py-2 font-bold' + ' ' + props.day}>
+        <header role="banner" className={'flex w-full px-wrap items-center text-2xl py-2 font-black' + ' ' + props.day}>
 
-            <button className="flex items-center font-bold leading-none transition-all" title="Search">
+            <button className="flex items-center leading-none transition-all text-lg font-bold" title="Search">
                 <FiSearch aria-hidden="true"/><span className="ml-2 hidden md:block">Search</span>
             </button>
 
@@ -39,7 +39,7 @@ function Header(props) {
                 <Link href="/"><a className="inline-block leading-none transition-all">Front-End Web Daily</a></Link>
             </div>
 
-            <button id="social-toggle" title="Social Media" className="flex items-center font-bold leading-none transition-all" onClick={SocialToggle}>
+            <button id="social-toggle" title="Social Media" className="flex items-center leading-none transition-all text-lg font-bold" onClick={SocialToggle}>
                 @<span className="hidden md:block">fewdaily</span>
             </button>
 

@@ -10,7 +10,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['futura-pt', ...defaultTheme.fontFamily.sans]
+      sans: ['Mulish', ...defaultTheme.fontFamily.sans]
     },
     colors: {
         transparent: "transparent",
@@ -26,6 +26,10 @@ module.exports = {
         white: '#FFFFFF'
     },
     extend: {
+      fontSize: {
+        '3xs': '.5rem',
+        '2xs': '.625rem'
+      },
       inset: {
         'full': '100%'
       },

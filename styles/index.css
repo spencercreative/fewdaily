@@ -1,5 +1,3 @@
-@import url('https://use.typekit.net/kis6ina.css');
-
 @tailwind base;
 
 html {
@@ -13,7 +11,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     @apply font-sans;
-    @apply font-bold;
+    @apply font-black;
     @apply mb-4;
     @apply mt-12;
     @apply leading-none;
@@ -76,57 +74,100 @@ button {
     @apply cursor-pointer;
     @apply relative;
     @apply z-0;
+    @apply transition-shadow;
+    @apply duration-300;
 }
 
-a:before,
-button:before {
-    content: "";
-    height: 5px;
-    transition: height ease 300ms;
-    z-index: -1;
-    @apply absolute;
-    @apply bottom-0;
-    @apply w-full;
-    @apply rounded-md;
+.monday a, .monday button, main .monday a, main .monday button {
+    box-shadow: inset 0 -.15em 0 theme('colors.blue');
 }
 
-a:hover:before,
-button:hover:before,
-a:focus:before,
-button:focus:before {
-    height: 40%;
+.monday a:hover, .monday button:hover, main .monday a:hover, main .monday button:hover {
+    box-shadow: inset 0 -.4em 0 theme('colors.blue');
 }
 
-.bg-monday, .monday a:before, .monday button:before, main .monday a:before, main .monday button:before {
+.bg-monday {
     @apply bg-blue;
 }
 
-.bg-tuesday, .tuesday a:before, .tuesday button:before, main .tuesday a:before, main .tuesday button:before {
+.tuesday a, .tuesday button, main .tuesday a, main .tuesday button {
+    box-shadow: inset 0 -.15em 0 theme('colors.red');
+}
+
+.tuesday a:hover, .tuesday button:hover, main .tuesday a:hover, main .tuesday button:hover {
+    box-shadow: inset 0 -.4em 0 theme('colors.red');
+}
+
+.bg-tuesday {
     @apply bg-red;
 }
 
-.bg-wednesday, .wednesday a:before, .wednesday button:before, main .wednesday a:before, main .wednesday button:before {
+.wednesday a, .wednesday button, main .wednesday a, main .wednesday button {
+    box-shadow: inset 0 -.15em 0 theme('colors.purple');
+}
+
+.wednesday a:hover, .wednesday button:hover, main .wednesday a:hover, main .wednesday button:hover {
+    box-shadow: inset 0 -.4em 0 theme('colors.purple');
+}
+
+.bg-wednesday {
     @apply bg-purple;
 }
 
-.bg-thursday, .thursday a:before, .thursday button:before, main .thursday a:before, main .thursday button:before {
+.thursday a, .thursday button, main .thursday a, main .thursday button {
+    box-shadow: inset 0 -.15em 0 theme('colors.orange');
+}
+
+.thursday a:hover, .thursday button:hover, main .thursday a:hover, main .thursday button:hover {
+    box-shadow: inset 0 -.4em 0 theme('colors.orange');
+}
+
+.bg-thursday {
     @apply bg-orange;
 }
 
-.bg-friday, .friday a:before, .friday button:before, main .friday a:before, main .friday button:before {
+.friday a, .friday button, main .friday a, main .friday button {
+    box-shadow: inset 0 -.15em 0 theme('colors.green');
+}
+
+.friday a:hover, .friday button:hover, main .friday a:hover, main .friday button:hover {
+    box-shadow: inset 0 -.4em 0 theme('colors.green');
+}
+
+.bg-friday {
     @apply bg-green;
 }
 
-.bg-saturday, .saturday a:before, .saturday button:before, main .saturday a:before, main .saturday button:before {
+.saturday a, .saturday button, main .saturday a, main .saturday button {
+    box-shadow: inset 0 -.15em 0 theme('colors.yellow');
+}
+
+.saturday a:hover, .saturday button:hover, main .saturday a:hover, main .saturday button:hover {
+    box-shadow: inset 0 -.4em 0 theme('colors.yellow');
+}
+
+.bg-saturday {
     @apply bg-yellow;
 }
 
-.bg-sunday, .sunday a:before, .sunday button:before, main .sunday a:before, main .sunday button:before {
+.sunday a, .sunday button, main .sunday a, main .sunday button {
+    box-shadow: inset 0 -.15em 0 theme('colors.gray');
+}
+
+.sunday a:hover, .sunday button:hover, main .sunday a:hover, main .sunday button:hover {
+    box-shadow: inset 0 -.4em 0 theme('colors.gray');
+}
+
+.bg-sunday {
     @apply bg-gray;
 }
 
-.sponsor a:before, .sponsor button:before {
-    @apply bg-white;
+.sponsor a, .sponsor button {
+    box-shadow: inset 0 -.15em 0 theme('colors.white');
+}
+
+.sponsor a:hover, .sponsor button:hover {
+    box-shadow: inset 0 -.4em 0 theme('colors.white');
 }
 
 #social-nav {
@@ -137,9 +178,23 @@ button:focus:before {
     transform: translate(0,0)
 }
 
-#assets .instagram h2 {
+#assets img {
+    max-width: 300px;
+    height: auto;
+    @apply w-full;
+    @apply mx-auto;
+    @apply my-4;
+}
+
+@media screen and (min-width: 640px) {
+    #assets img {
+        @apply mx-4;
+    }
+}
+
+#assets h2 {
     @apply my-6;
-    @apply text-3xl;
+    @apply text-2xl;
 }
 
 @tailwind components;

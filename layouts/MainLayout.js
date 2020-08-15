@@ -10,7 +10,7 @@ function MainLayout(props) {
         <>
         <div className="min-h-screen flex flex-col">
             <Header day={theNamedDay} />
-            <main className={'text-2xl leading-snug w-full flex-1 px-wrap py-16' + ' ' + theNamedDay}>
+            <main className={'leading-snug w-full flex-1 px-wrap py-16' + ' ' + theNamedDay}>
                 {props.children}
             </main>
             <Footer day={theNamedDay}/>

@@ -5,16 +5,17 @@ import ErrorPage from 'next/error'
 import MainLayout from 'layouts/MainLayout'
 import Sponsor from 'components/Sponsor'
 import { getPostBySlug, getAllPosts } from 'lib/api'
+import { socialShares } from 'lib/socialShares'
 import markdownToHtml from 'lib/markdownToHtml'
-import { theNamedDay, stringToSlug, splitSections, makeExcerpt } from 'lib/helpers'
-import { FiFacebook, FiLinkedin, FiTwitter, FiMail, FiLink, FiCopy, FiMic } from 'react-icons/fi'
+import { theNamedDay, stringToSlug, makeExcerpt, dayTitle } from 'lib/helpers'
+import { FiFacebook, FiLinkedin, FiTwitter, FiMail, FiCopy, FiMic, FiPrinter } from 'react-icons/fi'
 
 const SocialShare = (props) => (
     <li className="mr-2">
-        <a href={props.link} className="inline-block" title={props.title}>
+        <button className="inline-block" title={props.title} onClick={props.onClick}>
             <span>{props.icon}</span>
             <span className="sr-only">{props.title}</span>
-        </a>
+        </button>
     </li>
 )
 
@@ -47,6 +48,14 @@ export default function Post({post}) {
         return <ErrorPage statusCode={404} />
     }
 
+    if (typeof window !== "undefined") {
+        var url = window.location.href
+        var hostname = window.location.hostname
+    } else {
+        var url = null
+        var hostname = null
+    }
+
     return (
         <>
             {router.isFallback ? (
@@ -56,14 +65,16 @@ export default function Post({post}) {
                     <article className="max-w-4xl mx-auto">
                         <Head>
                             <title>
-                                {post.title} | {post.slug} | Front-End Web Daily
+                                {dayTitle(post.slug)} | {post.slug} | Front-End Web Daily
                             </title>
-                            <meta name="description" content={makeExcerpt(post.content)} />
+                            <meta
+                                name="description"
+                                content={post.excerpt !== undefined ? post.excerpt : makeExcerpt(post.content)} />
                         </Head>
                         
                         <header>
                             <p className="mb-0 font-bold text-lg">{post.slug}</p>
-                            <h1 className="my-0 uppercase">{post.title}</h1>
+                            <h1 className="my-0 uppercase">{dayTitle(post.slug)}</h1>
                             {post.tags !== undefined &&
                                 <p>
                                     {post.tags.map((tag) => 
@@ -81,18 +92,18 @@ export default function Post({post}) {
                             <div>
                                 <p className="mb-1 text-xs">Share</p>
                                 <ul className="flex flex-wrap">
-                                    <SocialShare title="Facebook" icon={<FiFacebook/>} link={'#'} />
-                                    <SocialShare title="Twitter" icon={<FiTwitter/>} link={'#'} />
-                                    <SocialShare title="LinkedIn" icon={<FiLinkedin/>} link={'#'} />
-                                    <SocialShare title="Email" icon={<FiMail/>} link={'#'} />
-                                    <SocialShare title="Link to Post" icon={<FiLink/>} link={'#'} />
+                                    <SocialShare title="Facebook" icon={<FiFacebook/>} onClick={(socialShares('facebook', router.asPath))} />
+                                    <SocialShare title="Twitter" icon={<FiTwitter/>} onClick={socialShares('twitter', router.asPath)} />
+                                    <SocialShare title="LinkedIn" icon={<FiLinkedin/>} onClick={socialShares('linkedin', router.asPath)} />
+                                    <SocialShare title="Email" icon={<FiMail/>} onClick={'mailto:?body=' + router.asPath} />
+                                    <SocialShare title="Link to Post" icon={<FiPrinter/>} onClick={'#'} />
                                 </ul>
                             </div>
                             <div>
                                 <p className="mb-1 text-xs text-right">Assets</p>
                                 <ul className="flex flex-wrap">
-                                    <AssetsLink title="Social Assets" icon={<FiCopy/>} link={'/' + post.slug + '/assets'} internal={true} />
-                                    <AssetsLink title="Audio Script" icon={<FiMic/>} link={'#'} />
+                                    {theNamedDay([post.slug]) !== 'tuesday' && <AssetsLink title="Social Assets" icon={<FiCopy/>} link={'/' + post.slug + '/assets'} internal={true} />}
+                                    <AssetsLink title="Audio Script" icon={<FiMic/>} link={'/' + post.slug + '/script'} internal={true} />
                                 </ul>
                             </div>
                         </footer>
@@ -123,6 +134,7 @@ export async function getStaticProps({ params }) {
         'title',
         'slug',
         'podcast',
+        'excerpt',
         'content',
         'tags',
     ])

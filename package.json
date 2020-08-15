@@ -8,6 +8,7 @@
     "@mdx-js/loader": "^1.6.16",
     "@next/mdx": "^9.5.2",
     "date-fns": "^2.15.0",
+    "fontsource-mulish": "^3.0.5",
     "front-matter": "^4.0.2",
     "gray-matter": "^4.0.2",
     "highlight.js": "^10.1.2",
@@ -21,6 +22,7 @@
     "react-icons": "^3.10.0",
     "react-netlify-form": "^2.1.5",
     "react-player": "^2.6.0",
+    "react-render-as-image": "^1.1.1",
     "remark": "^12.0.1",
     "remark-html": "^12.0.0"
   },

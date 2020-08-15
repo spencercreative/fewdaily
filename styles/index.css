@@ -75,8 +75,7 @@ button {
     @apply cursor-pointer;
     @apply relative;
     @apply z-0;
-    @apply transition-shadow;
-    @apply duration-300;
+    transition: box-shadow ease .3s;
 }
 
 .monday a, .monday button, main .monday a, main .monday button {

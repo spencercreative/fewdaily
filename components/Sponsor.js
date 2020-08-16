@@ -44,51 +44,59 @@ export default function Sponsor(props) {
 
     if ( props.day === 'monday' ) {
         return (
-            <Wrapper day={props.day}>
-                <Monday/>
-            </Wrapper> 
+            null
+            // <Wrapper day={props.day}>
+            //     <Monday/>
+            // </Wrapper> 
         )
     } else if ( props.day === 'tuesday' ) {
         return (
-            <Wrapper day={props.day}>
-                <Tuesday/>
-            </Wrapper> 
+            null
+            // <Wrapper day={props.day}>
+            //     <Tuesday/>
+            // </Wrapper> 
         )
     } else if ( props.day === 'wednesday' ) {
         return (
-            <Wrapper day={props.day}>
-                <Wednesday/>
-            </Wrapper> 
+            null
+            // <Wrapper day={props.day}>
+            //     <Wednesday/>
+            // </Wrapper> 
         )
     } else if ( props.day === 'thursday' ) {
         return (
-            <Wrapper day={props.day}>
-                <Thursday/>
-            </Wrapper> 
+            null
+            // <Wrapper day={props.day}>
+            //     <Thursday/>
+            // </Wrapper> 
         )
     } else if ( props.day === 'friday' ) {
         return (
-            <Wrapper day={props.day}>
-                <Friday/>
-            </Wrapper> 
+            null
+            // <Wrapper day={props.day}>
+            //     <Friday/>
+            // </Wrapper> 
         )
     } else if ( props.day === 'saturday' ) {
         return (
-            <Wrapper day={props.day}>
-                <Saturday/>
-            </Wrapper> 
+            null
+            // <Wrapper day={props.day}>
+            //     <Saturday/>
+            // </Wrapper> 
         )
     } else if ( props.day === 'sunday' ) {
         return (
-            <Wrapper day={props.day}>
-                <Sunday/>
-            </Wrapper> 
+            null
+            // <Wrapper day={props.day}>
+            //     <Sunday/>
+            // </Wrapper> 
         )
     } else {
         return (
-            <Wrapper day={getCurrentDay()}>
-                <General/>
-            </Wrapper> 
+            null
+            // <Wrapper day={getCurrentDay()}>
+            //     <General/>
+            // </Wrapper> 
         )
     }
     

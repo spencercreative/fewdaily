@@ -4,6 +4,7 @@ module.exports = {
   purge: [
     './components/*.js',
     './layouts/*.js',
+    './lib/*.js',
     './pages/*.js',
     './pages/**/*.js',
     './styles/*.css',

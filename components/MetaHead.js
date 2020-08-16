@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 
-function HeadMetadata({title, description, day}) {
+function HeadMetadata({title, description, day, type}) {
 
     if (title !== undefined) {
         var metaTitle = title + ' | Front-End Web Daily'
@@ -45,17 +45,27 @@ function HeadMetadata({title, description, day}) {
             {day !== undefined ?
             <>
             <meta property="og:image" content={hostname + '/social-cards/' + day + '.png'} />
+            <meta property="og:image:secure_url" content={hostname + '/social-cards/' + day + '.png'} />
             <meta property="twitter:image" content={hostname + '/social-cards/' + day + '.png'} />
             </>
             :
             <>
             <meta property="og:image" content={hostname + '/social-cards/monday.png'} />
+            <meta property="og:image:secure_url" content={hostname + '/social-cards/' + day + '.png'} />
             <meta property="twitter:image" content={hostname + '/social-cards/monday.png'} />
             </>
             }
-
-            <meta property="og:type" content="website" />
+            
+            {type !== undefined ? <meta property="og:type" content={type} /> : <meta property="og:type" content="website" />}
+            
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:image:type" content="image/png" />
+            <meta property="og:image:width" content="1920" />
+            <meta property="og:image:height" content="1080" />
+            <meta property="og:image:alt" content="Calendar on computer logo for Front-End Web Daily" />
+            <meta property="twitter:image:alt" content="Calendar on computer logo for Front-End Web Daily" />
             <meta name="twitter:creator" content="@fewdaily"/>
+            <meta name="twitter:site" content="@fewdaily"/>
             <meta property="twitter:card" content="summary_large_image" />
         </Head>
     )

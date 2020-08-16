@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import Head from 'next/head'
+import MetaHead from 'components/MetaHead'
 import ErrorPage from 'next/error'
 import MainLayout from 'layouts/MainLayout'
 import { getPostBySlug, getAllPosts } from 'lib/api'
@@ -21,12 +21,7 @@ export default function Post({post}) {
             ) : (
                 <MainLayout day={theNamedDay([post.slug])}>
                     <article className="max-w-4xl mx-auto">
-                        <Head>
-                            <title>
-                                Audio Script for {theDateString(post.slug)} | Front-End Web Daily
-                            </title>
-                            <meta name="description" content={makeExcerpt(post.content)} />
-                        </Head>
+                        <MetaHead title={'Audio Script for ' + theDateString(post.slug)} description={post.excerpt !== undefined ? post.excerpt : makeExcerpt(post.content)} day={theNamedDay([post.slug])} />
                         
                         <header>
                             <p className="mb-0 font-bold text-sm"><Link href={'/' + post.slug}><a>{theDateString(post.slug)}</a></Link></p>

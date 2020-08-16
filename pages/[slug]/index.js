@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import Head from 'next/head'
+import MetaHead from 'components/MetaHead'
 import ErrorPage from 'next/error'
 import MainLayout from 'layouts/MainLayout'
 import Sponsor from 'components/Sponsor'
@@ -63,14 +63,7 @@ export default function Post({post}) {
             ) : (
                 <MainLayout day={theNamedDay([post.slug])}>
                     <article className="max-w-4xl mx-auto">
-                        <Head>
-                            <title>
-                                {dayTitle(post.slug)} | {theDateString(post.slug)} | Front-End Web Daily
-                            </title>
-                            <meta
-                                name="description"
-                                content={post.excerpt !== undefined ? post.excerpt : makeExcerpt(post.content)} />
-                        </Head>
+                        <MetaHead title={dayTitle(post.slug) + ' | ' + theDateString(post.slug)} description={post.excerpt !== undefined ? post.excerpt : makeExcerpt(post.content)} day={theNamedDay([post.slug])} type="article" />
                         
                         <header>
                             <p className="mb-0 font-bold text-sm">{theDateString(post.slug)}</p>
@@ -92,11 +85,11 @@ export default function Post({post}) {
                             <div>
                                 <p className="mb-1 text-xs">Share</p>
                                 <ul className="flex flex-wrap">
-                                    <SocialShare title="Facebook" icon={<FiFacebook/>} onClick={(socialShares('facebook', router.asPath))} />
-                                    <SocialShare title="Twitter" icon={<FiTwitter/>} onClick={socialShares('twitter', router.asPath)} />
-                                    <SocialShare title="LinkedIn" icon={<FiLinkedin/>} onClick={socialShares('linkedin', router.asPath)} />
-                                    <SocialShare title="Email" icon={<FiMail/>} onClick={'mailto:?body=' + router.asPath} />
-                                    <SocialShare title="Link to Post" icon={<FiPrinter/>} onClick={'#'} />
+                                    <SocialShare title="Facebook" icon={<FiFacebook/>} />
+                                    <SocialShare title="Twitter" icon={<FiTwitter/>} />
+                                    <SocialShare title="LinkedIn" icon={<FiLinkedin/>} />
+                                    <SocialShare title="Email" icon={<FiMail/>} />
+                                    <SocialShare title="Link to Post" icon={<FiPrinter/>} />
                                 </ul>
                             </div>
                             <div>

@@ -7,8 +7,12 @@ import Sponsor from 'components/Sponsor'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import { socialShares } from 'lib/socialShares'
 import markdownToHtml from 'lib/markdownToHtml'
+import Parser from 'rss-parser'
+import { GetEpisode } from 'lib/podcastRss'
 import { theNamedDay, stringToSlug, makeExcerpt, dayTitle, theDateString } from 'lib/helpers'
 import { FiFacebook, FiLinkedin, FiTwitter, FiMail, FiCopy, FiMic, FiPrinter } from 'react-icons/fi'
+
+let parser = new Parser()
 
 const SocialShare = (props) => (
     <li className="mr-2">
@@ -77,9 +81,11 @@ export default function Post({post}) {
                             }
                         </header>
 
-                        <Sponsor day={theNamedDay([post.slug])}/>
+                        <Sponsor day={theNamedDay([post.slug])} />
 
                         <div className="mt-16" dangerouslySetInnerHTML={{__html: post.renderedContent}} />
+
+                        <GetEpisode date={post.slug}/>
 
                         <footer className="border-t border-solid border-gray py-4 flex justify-between">
                             <div>

@@ -78,6 +78,23 @@ button {
     transition: box-shadow ease .3s;
 }
 
+input {
+    @apply border-2;
+    @apply border-solid;
+    @apply border-gray;
+    @apply rounded-md;
+    @apply py-1;
+    @apply px-2;
+    @apply mx-4;
+    @apply w-full;
+    @apply max-w-sm;
+}
+
+input + button {
+    @apply font-bold;
+    @apply uppercase;
+}
+
 .monday a, .monday button, main .monday a, main .monday button {
     box-shadow: inset 0 -.15em 0 theme('colors.blue');
 }
@@ -196,6 +213,16 @@ button {
     @apply my-6;
     @apply text-2xl;
     hyphens: none;
+}
+
+#podcast-episode {
+    height: 98px;
+}
+
+@media screen and (min-width: 865px) {
+    #podcast-episode {
+        height: 161px;
+    }
 }
 
 @tailwind components;

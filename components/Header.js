@@ -1,10 +1,9 @@
 import Link from 'next/link'
-import { FiSearch } from "react-icons/fi"
-import { FaInstagram } from "react-icons/fa"
+import { FiSearch, FiInstagram, FiFacebook, FiTwitter, FiYoutube, FiLinkedin, FiMic } from "react-icons/fi"
 
 const SocialLink = (props) => (
     <li className="p-4">
-        <a href={props.to} target="_blank" className="block">
+        <a href={props.to} target="_blank" className="block" title={props.title}>
             {props.icon}
             <span className="sr-only">{props.title}</span>
         </a>
@@ -17,11 +16,11 @@ function SocialToggle() {
 
     if ( menu.classList.contains('hidden') ) {
         menu.classList.remove('hidden')
-        menu.classList.add('block', 'active')
+        menu.classList.add('flex', 'active')
         button.classList.add('z-30')
     } else {
         menu.classList.add('hidden')
-        menu.classList.remove('block', 'active')
+        menu.classList.remove('flex', 'active')
         button.classList.remove('z-30')
     }
 }
@@ -43,9 +42,14 @@ function Header(props) {
                 @<span className="hidden md:block">fewdaily</span>
             </button>
 
-            <nav id="social-nav" className="absolute hidden translate-x-full top-0 left-0 w-full h-full py-20 px-wrap bg-white z-10 overflow-y-auto transition-transform duration-500">
-                <ul className="flex flex-wrap justify-center gap-10 text-3xl -m-4">
-                    <SocialLink icon={<FaInstagram/>} to="/" title="Instagram" />
+            <nav id="social-nav" className="absolute hidden items-center justify-center translate-x-full top-0 left-0 w-full h-full py-20 px-wrap bg-white z-10 overflow-y-auto transition-transform duration-500">
+                <ul className="flex flex-wrap justify-center items-center gap-10 text-6xl -m-4">
+                    <SocialLink icon={<FiInstagram className="stroke-1-1/2"/>} to="https://www.instagram.com/fewdaily/" title="Instagram" />
+                    <SocialLink icon={<FiTwitter className="stroke-1-1/2"/>} to="https://twitter.com/fewdaily" title="Twitter" />
+                    <SocialLink icon={<FiFacebook className="stroke-1-1/2"/>} to="https://www.facebook.com/fewdaily/" title="Facebook" />
+                    <SocialLink icon={<FiYoutube className="stroke-1-1/2"/>} to="https://www.youtube.com/channel/UC4IfUmMAi_-vT4ELn4GgVLQ" title="YouTube" />
+                    <SocialLink icon={<FiLinkedin className="stroke-1-1/2"/>} to="https://www.linkedin.com/company/fewdaily/" title="LinkedIn" />
+                    <SocialLink icon={<FiMic className="stroke-1-1/2"/>} to="https://anchor.fm/fewdaily" title="Podcast on Anchor.fm" />
                 </ul>
             </nav>
         </header>

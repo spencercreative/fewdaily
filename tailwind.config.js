@@ -50,6 +50,9 @@ module.exports = {
         'screen-25': '25vh',
         'screen-50': '50vh',
         'screen-75': '75vh',
+      },
+      strokeWidth: {
+        '1-1/2': '1.5'
       }
     },
   },

@@ -13,7 +13,7 @@ import { FiFacebook, FiLinkedin, FiTwitter, FiMail, FiCopy, FiMic, FiPrinter } f
 
 const SocialShare = (props) => (
     <li className="mr-2">
-        <a className="inline-block" href={props.href} target="_blank" title={props.title}>
+        <a className="inline-block" href={props.href} target="_blank" rel="noreferrer" title={props.title}>
             <span>{props.icon}</span>
             <span className="sr-only">{props.title}</span>
         </a>

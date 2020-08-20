@@ -23,7 +23,7 @@ export default function PostList( props ) {
                     {post.tags !== undefined &&
                         <div className="flex flex-wrap justify-end md:max-w-xs">
                             {post.tags.map((tag) => 
-                                <Link href={'/tags/' + stringToSlug(tag)} key={stringToSlug(tag)}><a className="ml-3 text-base">{tag}</a></Link>
+                                <Link href={'/tags/' + stringToSlug(tag)} key={stringToSlug(tag)}><a className="ml-3 text-lg md:text-base">{tag}</a></Link>
                             )}
                         </div>
                     }

@@ -3,7 +3,7 @@ import { FiTag, FiInstagram, FiFacebook, FiTwitter, FiYoutube, FiLinkedin, FiMic
 
 const SocialLink = (props) => (
     <li className="p-4">
-        <a href={props.to} target="_blank" className="block" title={props.title}>
+        <a href={props.to} target="_blank" rel="noreferrer" className="block" title={props.title}>
             {props.icon}
             <span className="sr-only">{props.title}</span>
         </a>

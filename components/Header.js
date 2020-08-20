@@ -46,7 +46,7 @@ function Header(props) {
                 <FiTag aria-hidden="true"/><span className="ml-1 hidden md:block">Tags</span>
             </button>
 
-            <div className="flex-1 px-4 text-center uppercase">
+            <div id="header-home" className="flex-1 px-4 text-center uppercase">
                 <Link href="/"><a className="inline-block leading-none">Front-End Web Daily</a></Link>
             </div>
 

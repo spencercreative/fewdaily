@@ -7,19 +7,16 @@ import Sponsor from 'components/Sponsor'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import { socialShares } from 'lib/socialShares'
 import markdownToHtml from 'lib/markdownToHtml'
-import Parser from 'rss-parser'
 import { GetEpisode } from 'lib/podcastRss'
 import { theNamedDay, stringToSlug, makeExcerpt, dayTitle, theDateString } from 'lib/helpers'
 import { FiFacebook, FiLinkedin, FiTwitter, FiMail, FiCopy, FiMic, FiPrinter } from 'react-icons/fi'
 
-let parser = new Parser()
-
 const SocialShare = (props) => (
     <li className="mr-2">
-        <button className="inline-block" title={props.title} onClick={props.onClick}>
+        <a className="inline-block" href={props.href} target="_blank" title={props.title}>
             <span>{props.icon}</span>
             <span className="sr-only">{props.title}</span>
-        </button>
+        </a>
     </li>
 )
 
@@ -50,14 +47,6 @@ export default function Post({post}) {
 
     if (!router.isFallback && !post?.slug) {
         return <ErrorPage statusCode={404} />
-    }
-
-    if (typeof window !== "undefined") {
-        var url = window.location.href
-        var hostname = window.location.hostname
-    } else {
-        var url = null
-        var hostname = null
     }
 
     return (
@@ -91,9 +80,9 @@ export default function Post({post}) {
                             <div>
                                 <p className="mb-1 text-xs">Share</p>
                                 <ul className="flex flex-wrap">
-                                    <SocialShare title="Facebook" icon={<FiFacebook/>} />
-                                    <SocialShare title="Twitter" icon={<FiTwitter/>} />
-                                    <SocialShare title="LinkedIn" icon={<FiLinkedin/>} />
+                                    <SocialShare title="Facebook" icon={<FiFacebook/>} href={'https://www.facebook.com/sharer/sharer.php?u=#'} />
+                                    <SocialShare title="Twitter" icon={<FiTwitter/>} href={'https://twitter.com/intent/tweet?url=#'} />
+                                    <SocialShare title="LinkedIn" icon={<FiLinkedin/>} href={'https://www.linkedin.com/sharing/share-offsite?url=#&summary=&source='} />
                                     <SocialShare title="Email" icon={<FiMail/>} />
                                     <SocialShare title="Link to Post" icon={<FiPrinter/>} />
                                 </ul>
@@ -132,7 +121,6 @@ export async function getStaticProps({ params }) {
     const post = getPostBySlug(params.slug, [
         'title',
         'slug',
-        'podcast',
         'excerpt',
         'content',
         'tags',
@@ -141,10 +129,10 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-        post: {
-            ...post,
-            renderedContent,
-        },
+            post: {
+                ...post,
+                renderedContent,
+            },
         },
     }
 }

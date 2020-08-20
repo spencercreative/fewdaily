@@ -82,8 +82,7 @@ input {
     @apply border-solid;
     @apply border-gray;
     @apply rounded;
-    @apply py-1;
-    @apply px-2;
+    @apply p-2;
     @apply mx-4;
     @apply w-full;
     @apply bg-gray;

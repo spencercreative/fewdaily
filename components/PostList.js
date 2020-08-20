@@ -1,13 +1,17 @@
 import Link from 'next/link'
-import { theNamedDay, stringToSlug, makeExcerpt, dayTitle, theDateString } from 'lib/helpers'
+import { theNamedDay, stringToSlug, makeExcerpt, dayTitle, listDate } from 'lib/helpers'
 
-export default function PostList({ posts }) {
+export default function PostList( props ) {
     return (
+        <>
+        <p className="mt-0 mb-1 text-xs text-right">({props.count}) total post{ props.count > 1 && 's' }</p>
         <ul className="border-t border-solid border-gray">
-            {posts.map((post) =>
-                <li className={'flex flex-col md:flex-row justify-between md:items-center gap-4 text-xl py-3 border-b border-solid border-gray' + ' ' + theNamedDay(post.slug)} key={post.slug}>
+            {props.posts.map((post) =>
+                <li className={'post-list-item flex flex-col md:flex-row justify-between md:items-center gap-4 text-xl py-3 border-b border-solid border-gray' + ' ' + theNamedDay(post.slug)} key={post.slug}>
                     <div>
-                        <p className="mb-0 text-xs font-bold">{theDateString(post.slug)}</p>
+                        <p className="mb-0 text-xs font-bold">
+                            {listDate(post.slug)}
+                        </p>
                         <Link href={'/' + post.slug}><a className="font-black text-2xl">{dayTitle(post.slug)}</a></Link>
                         { theNamedDay(post.slug) !== 'tuesday' ? (
                             <p className="mb-0 text-base">{makeExcerpt(post.content)}</p>
@@ -26,5 +30,6 @@ export default function PostList({ posts }) {
                 </li>
             )}
         </ul>
+        </>
     )
 }

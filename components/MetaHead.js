@@ -47,12 +47,20 @@ function HeadMetadata({title, description, day, type}) {
             <meta property="og:image" content={hostname + '/social-cards/' + day + '.png'} />
             <meta property="og:image:secure_url" content={hostname + '/social-cards/' + day + '.png'} />
             <meta property="twitter:image" content={hostname + '/social-cards/' + day + '.png'} />
+            <link rel="apple-touch-icon" sizes="180x180" href={'/favicons/' + day + '/apple-touch-icon.png'}/>
+            <link rel="icon" type="image/png" sizes="32x32" href={'/favicons/' + day + '/favicon-32x32.png'}/>
+            <link rel="icon" type="image/png" sizes="16x16" href={'/favicons/' + day + '/favicon-16x16.png'}/>
+            <link rel="manifest" href={'/favicons/' + day + '/site.webmanifest'}/>
             </>
             :
             <>
             <meta property="og:image" content={hostname + '/social-cards/monday.png'} />
             <meta property="og:image:secure_url" content={hostname + '/social-cards/' + day + '.png'} />
             <meta property="twitter:image" content={hostname + '/social-cards/monday.png'} />
+            <link rel="apple-touch-icon" sizes="180x180" href={'/favicons/monday/apple-touch-icon.png'}/>
+            <link rel="icon" type="image/png" sizes="32x32" href={'/favicons/monday/favicon-32x32.png'}/>
+            <link rel="icon" type="image/png" sizes="16x16" href={'/favicons/monday/favicon-16x16.png'}/>
+            <link rel="manifest" href={'/favicons/monday/site.webmanifest'}/>
             </>
             }
             

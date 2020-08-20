@@ -13,12 +13,8 @@ class MyDocument extends Document {
       <Html lang="en" className="overflow-x-hidden w-full h-full">
         <Head>
           <meta name="theme-color" content="#282828"/>
-          <link rel="apple-touch-icon" sizes="180x180" href={'/favicons/' + dayOfWeek + '/apple-touch-icon.png'}/>
-          <link rel="icon" type="image/png" sizes="32x32" href={'/favicons/' + dayOfWeek + '/favicon-32x32.png'}/>
-          <link rel="icon" type="image/png" sizes="16x16" href={'/favicons/' + dayOfWeek + '/favicon-16x16.png'}/>
-          <link rel="manifest" href={'/favicons/' + dayOfWeek + '/site.webmanifest'}/>
         </Head>
-        <body className="relative overflow-x-hidden w-full h-full">
+        <body className="relative overflow-x-hidden w-full h-full text-slate">
           <Main />
           <NextScript />
         </body>

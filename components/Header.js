@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FiSearch, FiInstagram, FiFacebook, FiTwitter, FiYoutube, FiLinkedin, FiMic } from "react-icons/fi"
+import { FiTag, FiInstagram, FiFacebook, FiTwitter, FiYoutube, FiLinkedin, FiMic } from "react-icons/fi"
 
 const SocialLink = (props) => (
     <li className="p-4">
@@ -12,16 +12,28 @@ const SocialLink = (props) => (
 
 function SocialToggle() {
     var menu = document.getElementById('social-nav'),
-        button = document.getElementById('social-toggle')
+        button = document.getElementById('social-toggle'),
+        body = document.body,
+        main = document.getElementById('main'),
+        headerHome = document.getElementById('header-home'),
+        footer = document.getElementById('footer')
 
     if ( menu.classList.contains('hidden') ) {
         menu.classList.remove('hidden')
         menu.classList.add('flex', 'active')
         button.classList.add('z-30')
+        body.classList.add('overflow-hidden')
+        main.classList.add('hidden')
+        footer.classList.add('hidden')
+        headerHome.setAttribute('tabindex', -1)
     } else {
         menu.classList.add('hidden')
         menu.classList.remove('flex', 'active')
         button.classList.remove('z-30')
+        body.classList.remove('overflow-hidden')
+        main.classList.remove('hidden')
+        footer.classList.remove('hidden')
+        headerHome.removeAttribute('tabindex')
     }
 }
 
@@ -31,7 +43,7 @@ function Header(props) {
         <header role="banner" className={'flex w-full px-wrap items-center text-2xl py-2 font-black' + ' ' + props.day}>
 
             <button className="flex items-center leading-none text-lg font-bold" title="Search">
-                <FiSearch aria-hidden="true"/><span className="ml-2 hidden md:block">Search</span>
+                <FiTag aria-hidden="true"/><span className="ml-1 hidden md:block">Tags</span>
             </button>
 
             <div className="flex-1 px-4 text-center uppercase">

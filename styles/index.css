@@ -14,8 +14,7 @@ h1, h2, h3, h4, h5, h6 {
     @apply font-black;
     @apply mb-4;
     @apply mt-12;
-    @apply leading-none;
-    hyphens: auto;
+    @apply leading-tight;
 }
 
 h1 {
@@ -79,15 +78,20 @@ button {
 }
 
 input {
-    @apply border-2;
+    @apply border;
     @apply border-solid;
     @apply border-gray;
-    @apply rounded-md;
+    @apply rounded;
     @apply py-1;
     @apply px-2;
     @apply mx-4;
     @apply w-full;
-    @apply max-w-sm;
+    @apply bg-gray;
+    @apply bg-opacity-25;
+}
+
+input:focus {
+    @apply bg-opacity-0;
 }
 
 input + button {
@@ -201,6 +205,11 @@ input + button {
     @apply w-full;
     @apply mx-auto;
     @apply my-4;
+}
+
+.asset-container > div {
+    position: absolute;
+    left: -999%;
 }
 
 @media screen and (min-width: 640px) {

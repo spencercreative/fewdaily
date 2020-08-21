@@ -121,8 +121,8 @@ export default function Assets({post}) {
 
                             <div className="text-center">
                                 <SocialImage post={post} width="640px" height="360px" className="flex-1">
-                                    <div className="h-full flex items-center w-full gap-10">
-                                        <h3 className="m-0 uppercase text-3xl my-6 w-1/2 text-right">{dayTitle(post.slug)}</h3>
+                                    <div className="h-full flex items-center w-full">
+                                        <h3 className="mr-10 ml-0 uppercase text-3xl my-6 w-1/2 text-right">{dayTitle(post.slug)}</h3>
                                         <div className="w-1/2">
                                             {makeExcerpt(post.content).split(', ').map((element, index) =>
                                                 <h4 className="text-base mt-0 mb-3" key={index}>{element}</h4>

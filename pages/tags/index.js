@@ -12,11 +12,10 @@ export default function Tags(tags) {
                 <article className="mx-auto">
                     <MetaHead title={'Tags'} description={'All Front-End Web Daily tags'} day={getCurrentDay()} />
                     <h1 className="text-center mt-0 mb-8 font-black uppercase">Tags</h1>
-                    {console.log(tags.tags)}
                     {tags !== undefined && 
-                        <div className="flex flex-wrap gap-4 md:gap-8 items-center justify-center">
+                        <div className="flex flex-wrap items-center justify-center">
                             {tags.tags.map((tag) => (
-                                <Link href={'/tags/' + tag.slug}><a className="md:text-2xl font-black">{tag.name}</a></Link>
+                                <Link href={'/tags/' + tag.slug}><a className="m-2 md:m-4 md:text-2xl font-black">{tag.name}</a></Link>
                             ))}
                         </div>
                     }

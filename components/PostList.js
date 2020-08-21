@@ -7,8 +7,8 @@ export default function PostList( props ) {
         <p className="mt-0 mb-1 text-xs text-right">{props.count} post{ props.count > 1 && 's' }</p>
         <ul className="border-t border-solid border-gray">
             {props.posts.map((post) =>
-                <li className={'post-list-item flex flex-col md:flex-row justify-between md:items-center gap-4 text-xl py-3 border-b border-solid border-gray' + ' ' + theNamedDay(post.slug)} key={post.slug}>
-                    <div>
+                <li className={'post-list-item flex flex-col md:flex-row justify-between md:items-center text-xl py-3 border-b border-solid border-gray' + ' ' + theNamedDay(post.slug)} key={post.slug}>
+                    <div className="mb-4 md:mr-4 md:mb-0">
                         <p className="mb-0 text-xs font-bold">
                             {listDate(post.slug)}
                         </p>

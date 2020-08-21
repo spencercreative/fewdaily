@@ -64,7 +64,7 @@ function Header({day, router}) {
                 </button>
 
                 <nav id="social-nav" className="absolute hidden items-center justify-center translate-x-full top-0 left-0 w-full h-full py-20 px-wrap bg-white z-10 overflow-y-auto transition-transform duration-500">
-                    <ul className="flex flex-wrap justify-center items-center gap-10 text-6xl -m-4">
+                    <ul className="flex flex-wrap justify-center items-center text-6xl -m-4">
                         <SocialLink icon={<FiInstagram className="stroke-1-1/2"/>} to="https://www.instagram.com/fewdaily/" title="Instagram" />
                         <SocialLink icon={<FiTwitter className="stroke-1-1/2"/>} to="https://twitter.com/fewdaily" title="Twitter" />
                         <SocialLink icon={<FiFacebook className="stroke-1-1/2"/>} to="https://www.facebook.com/fewdaily/" title="Facebook" />

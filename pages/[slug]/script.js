@@ -5,7 +5,7 @@ import ErrorPage from 'next/error'
 import MainLayout from 'layouts/MainLayout'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import markdownToHtml from 'lib/markdownToHtml'
-import { theNamedDay, makeExcerpt, dayTitle, theDateString, transcriptText } from 'lib/helpers'
+import { theNamedDay, makeExcerpt, dayTitle, theDateString, transcriptText, headingList } from 'lib/helpers'
 
 export default function Post({post}) {
     const router = useRouter()
@@ -29,7 +29,20 @@ export default function Post({post}) {
                         </header>
 
                         <div className="mt-16">
-                            <p>Today is <span>{theDateString(post.slug)}</span> and for this <span>{dayTitle(post.slug)}</span> episode we're covering <span className="lowercase">{makeExcerpt(post.content)}</span>. Let's dive in!</p>
+                            {post.excerpt === undefined ? (
+                                <>
+                                <p>Today is <span>{theDateString(post.slug)}</span> and for this <span>{dayTitle(post.slug)}</span> episode we're covering:</p>
+                                <ul className="list-disc pl-6 mb-8">
+                                    {headingList(post.content).map((heading, index) => 
+                                        <li key={index}>{heading}</li>
+                                    )}
+                                </ul>
+                                </>
+                            ):(
+                            <p>Today is <span>{theDateString(post.slug)}</span> and for this <span>{dayTitle(post.slug)}</span> episode we're covering {post.excerpt}</p>
+                            )}
+                            <p>Let's dive in!</p>
+                            {post.excerpt !== undefined && <p>----</p>}
                             <div dangerouslySetInnerHTML={{__html: transcriptText(post.renderedContent)}} />
                             <p>----</p>
                             <p>Want to know more? Head to <a href="https://fewdaily.com">fewdaily.com</a> for more of today’s topics and other front-end web content! That's all for today, tune in tomorrow!</p>
@@ -61,6 +74,7 @@ export async function getStaticProps({ params }) {
     const post = getPostBySlug(params.slug, [
         'slug',
         'content',
+        'excerpt',
     ])
     const renderedContent = await markdownToHtml(post.content || '')
 

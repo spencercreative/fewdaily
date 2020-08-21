@@ -15,7 +15,7 @@ export default function Tags(tags) {
                     {tags !== undefined && 
                         <div className="flex flex-wrap items-center justify-center">
                             {tags.tags.map((tag) => (
-                                <Link href={'/tags/' + tag.slug}><a className="m-2 md:m-4 md:text-2xl font-black">{tag.name}</a></Link>
+                                <Link href={'/tags/' + tag.slug} key={tag.slug}><a className="m-2 md:m-4 md:text-2xl font-black">{tag.name}</a></Link>
                             ))}
                         </div>
                     }

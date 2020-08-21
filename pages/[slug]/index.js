@@ -5,15 +5,14 @@ import ErrorPage from 'next/error'
 import MainLayout from 'layouts/MainLayout'
 import Sponsor from 'components/Sponsor'
 import { getPostBySlug, getAllPosts } from 'lib/api'
-import { socialShares } from 'lib/socialShares'
 import markdownToHtml from 'lib/markdownToHtml'
 import { GetEpisode } from 'lib/podcastRss'
-import { theNamedDay, stringToSlug, makeExcerpt, dayTitle, theDateString } from 'lib/helpers'
+import { theNamedDay, stringToSlug, makeExcerpt, dayTitle, theDateString, hashtagList } from 'lib/helpers'
 import { FiFacebook, FiLinkedin, FiTwitter, FiMail, FiCopy, FiMic, FiPrinter } from 'react-icons/fi'
 
 const SocialShare = (props) => (
     <li className="mr-2">
-        <a className="inline-block" href={props.href} target="_blank" rel="noreferrer" title={props.title}>
+        <a className="inline-block" href={props.href} target="_blank" rel="noreferrer" title={props.title} onClick={props.onClick}>
             <span>{props.icon}</span>
             <span className="sr-only">{props.title}</span>
         </a>
@@ -22,23 +21,14 @@ const SocialShare = (props) => (
 
 const AssetsLink = (props) => (
     <>
-    {props.internal !== true ? (
-        <li className="ml-2">
-            <a href={props.link} className="inline-block" title={props.title} onClick={props.onClick}>
+    <li className="ml-2">
+        <Link href={props.link}>
+            <a className="inline-block" title={props.title}>
                 <span>{props.icon}</span>
                 <span className="sr-only">{props.title}</span>
             </a>
-        </li>
-    ) : (
-        <li className="ml-2">
-            <Link href={props.link}>
-                <a className="inline-block" title={props.title} onClick={props.onClick}>
-                    <span>{props.icon}</span>
-                    <span className="sr-only">{props.title}</span>
-                </a>
-            </Link>
-        </li>
-    )}
+        </Link>
+    </li>
     </>
 )
 
@@ -49,6 +39,12 @@ export default function Post({post}) {
         return <ErrorPage statusCode={404} />
     }
 
+    var url = 'https://fewdaily.com/' + post.slug
+
+    var excerpt = post.excerpt !== undefined ? post.excerpt : makeExcerpt(post.content)
+
+    var hashtags = hashtagList(post.tags)
+
     return (
         <>
             {router.isFallback ? (
@@ -56,7 +52,7 @@ export default function Post({post}) {
             ) : (
                 <MainLayout day={theNamedDay([post.slug])}>
                     <article className="max-w-4xl mx-auto">
-                        <MetaHead title={dayTitle(post.slug) + ' | ' + theDateString(post.slug)} description={post.excerpt !== undefined ? post.excerpt : makeExcerpt(post.content)} day={theNamedDay([post.slug])} type="article" />
+                        <MetaHead title={dayTitle(post.slug) + ' | ' + theDateString(post.slug)} description={excerpt} day={theNamedDay([post.slug])} type="article" />
                         
                         <header>
                             <p className="mb-0 font-bold text-sm">{theDateString(post.slug)}</p>
@@ -76,22 +72,22 @@ export default function Post({post}) {
 
                         <GetEpisode date={post.slug}/>
 
-                        <footer className="border-t border-solid border-gray py-4 flex justify-between">
+                        <footer className="border-t border-solid border-gray py-4 flex justify-between print:hidden">
                             <div>
                                 <p className="mb-1 text-xs">Share</p>
                                 <ul className="flex flex-wrap">
-                                    <SocialShare title="Facebook" icon={<FiFacebook/>} href={'https://www.facebook.com/sharer/sharer.php?u=#'} />
-                                    <SocialShare title="Twitter" icon={<FiTwitter/>} href={'https://twitter.com/intent/tweet?url=#'} />
-                                    <SocialShare title="LinkedIn" icon={<FiLinkedin/>} href={'https://www.linkedin.com/sharing/share-offsite?url=#&summary=&source='} />
-                                    <SocialShare title="Email" icon={<FiMail/>} />
-                                    <SocialShare title="Link to Post" icon={<FiPrinter/>} />
+                                    <SocialShare title="Facebook" icon={<FiFacebook/>} href={'https://www.facebook.com/sharer/sharer.php?u=' + url} />
+                                    <SocialShare title="Twitter" icon={<FiTwitter/>} href={'https://twitter.com/intent/tweet?text=' + excerpt + '%0a'+ hashtags + '%0a&url=' + url} />
+                                    <SocialShare title="LinkedIn" icon={<FiLinkedin/>} href={'https://www.linkedin.com/sharing/share-offsite?url=' + url + '&summary=' + excerpt} />
+                                    <SocialShare title="Email" icon={<FiMail/>} href={'mailto:?subject=' + dayTitle(post.slug) + ' | ' + theDateString(post.slug) + '&body=' + excerpt + '%0a' + url} />
+                                    <SocialShare title="Print" icon={<FiPrinter/>} onClick={() => window.print()} />
                                 </ul>
                             </div>
                             <div>
                                 <p className="mb-1 text-xs text-right">Assets</p>
                                 <ul className="flex flex-wrap">
-                                    {theNamedDay([post.slug]) !== 'tuesday' && <AssetsLink title="Social Assets" icon={<FiCopy/>} link={'/' + post.slug + '/assets'} internal={true} />}
-                                    <AssetsLink title="Audio Script" icon={<FiMic/>} link={'/' + post.slug + '/script'} internal={true} />
+                                    {theNamedDay([post.slug]) !== 'tuesday' && <AssetsLink title="Social Assets" icon={<FiCopy/>} link={'/' + post.slug + '/assets'} />}
+                                    <AssetsLink title="Audio Script" icon={<FiMic/>} link={'/' + post.slug + '/script'} />
                                 </ul>
                             </div>
                         </footer>

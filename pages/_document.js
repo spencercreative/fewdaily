@@ -10,11 +10,11 @@ class MyDocument extends Document {
   render() {
     var dayOfWeek = getCurrentDay()
     return (
-      <Html lang="en" className="overflow-x-hidden w-full h-full">
+      <Html lang="en" className="overflow-x-hidden w-full min-h-full">
         <Head>
           <meta name="theme-color" content="#282828"/>
         </Head>
-        <body className="relative overflow-x-hidden w-full h-full text-slate">
+        <body className="relative overflow-x-hidden w-full min-h-full text-slate font-sans md:text-xl">
           <Main />
           <NextScript />
         </body>

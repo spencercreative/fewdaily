@@ -11,11 +11,11 @@ function HeadMetadata({title, description, day, type}) {
 
     if (typeof window !== "undefined") {
         var url = window.location.href
-        var hostname = window.location.origin
     } else {
         var url = null
-        var hostname = null
     }
+
+    const hostname = 'https://fewdaily.com'
 
     if (description !== undefined) {
         var description = description
@@ -28,24 +28,24 @@ function HeadMetadata({title, description, day, type}) {
             
             <title>{metaTitle}</title>
             <meta name="title" content={metaTitle} />
-            <meta name="og:title" content={metaTitle} />
+            <meta property="og:title" content={metaTitle} />
             <meta name="twitter:title" content={metaTitle} />
 
             {description !== undefined &&
             <>
                 <meta name="description" content={description} />
-                <meta name="og:description" content={description} />
+                <meta property="og:description" content={description} />
                 <meta name="twitter:description" content={description} />
             </>
             }
 
-            <meta name="og:url" content={url} />
+            <meta property="og:url" content={url} />
             <meta name="twitter:url" content={url} />
 
             {day !== undefined ?
             <>
-            <meta name="og:image" content={hostname + '/social-cards/' + day + '.png'} />
-            <meta name="og:image:secure_url" content={hostname + '/social-cards/' + day + '.png'} />
+            <meta property="og:image" content={hostname + '/social-cards/' + day + '.png'} />
+            <meta property="og:image:secure_url" content={hostname + '/social-cards/' + day + '.png'} />
             <meta name="twitter:image" content={hostname + '/social-cards/' + day + '.png'} />
             <link rel="apple-touch-icon" sizes="180x180" href={'/favicons/' + day + '/apple-touch-icon.png'}/>
             <link rel="icon" type="image/png" sizes="32x32" href={'/favicons/' + day + '/favicon-32x32.png'}/>
@@ -54,8 +54,8 @@ function HeadMetadata({title, description, day, type}) {
             </>
             :
             <>
-            <meta name="og:image" content={hostname + '/social-cards/monday.png'} />
-            <meta name="og:image:secure_url" content={hostname + '/social-cards/' + day + '.png'} />
+            <meta property="og:image" content={hostname + '/social-cards/monday.png'} />
+            <meta property="og:image:secure_url" content={hostname + '/social-cards/' + day + '.png'} />
             <meta name="twitter:image" content={hostname + '/social-cards/monday.png'} />
             <link rel="apple-touch-icon" sizes="180x180" href={'/favicons/monday/apple-touch-icon.png'}/>
             <link rel="icon" type="image/png" sizes="32x32" href={'/favicons/monday/favicon-32x32.png'}/>
@@ -64,13 +64,13 @@ function HeadMetadata({title, description, day, type}) {
             </>
             }
             
-            {type !== undefined ? <meta name="og:type" content={type} /> : <meta name="og:type" content="website" />}
+            {type !== undefined ? <meta property="og:type" content={type} /> : <meta property="og:type" content="website" />}
             
-            <meta name="og:locale" content="en_US" />
-            <meta name="og:image:type" content="image/png" />
-            <meta name="og:image:width" content="1920" />
-            <meta name="og:image:height" content="1080" />
-            <meta name="og:image:alt" content="Calendar on computer logo for Front-End Web Daily" />
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:image:type" content="image/png" />
+            <meta property="og:image:width" content="1920" />
+            <meta property="og:image:height" content="1080" />
+            <meta property="og:image:alt" content="Calendar on computer logo for Front-End Web Daily" />
             <meta name="twitter:image:alt" content="Calendar on computer logo for Front-End Web Daily" />
             <meta name="twitter:creator" content="@fewdaily"/>
             <meta name="twitter:site" content="@fewdaily"/>

@@ -51,6 +51,9 @@ module.exports = {
         'screen-50': '50vh',
         'screen-75': '75vh',
       },
+      screens: {
+        'print': {'raw': 'print'},
+      },
       strokeWidth: {
         '1-1/2': '1.5'
       }

@@ -6,7 +6,7 @@ import ErrorPage from 'next/error'
 import MainLayout from 'layouts/MainLayout'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import markdownToHtml from 'lib/markdownToHtml'
-import { theNamedDay, splitSections, makeExcerpt, dayTitle, theDateString } from 'lib/helpers'
+import { theNamedDay, splitSections, makeExcerpt, dayTitle, theDateString, zipImages } from 'lib/helpers'
 
 function SocialImage(props) {
     const cornerStyles = 'absolute py-8 px-10 text-2xs whitespace-no-wrap font-black'
@@ -17,7 +17,7 @@ function SocialImage(props) {
                 <div className={'instagram p-10 flex text-sm relative' + ' bg-' + theNamedDay([props.post.slug])} style={{width: props.width, height: props.height}}>
                     <span className={'top-0 left-0 uppercase' + ' ' + cornerStyles}>Front-End Web Daily</span>
                     <span className={'top-0 right-0 uppercase' + ' ' + cornerStyles}>{theDateString(props.post.slug)}</span>
-                    <div className={props.className !== undefined && props.className}>
+                    <div className={props.className !== undefined ? props.className : undefined}>
                         {props.children}
                     </div>
                     <span className={'bottom-0 left-0 uppercase' + ' ' + cornerStyles}>More at fewdaily.com</span>
@@ -53,7 +53,7 @@ export default function Assets({post}) {
                         
                             <h3 className="text-center">Square</h3>
 
-                            <div className="text-center">
+                            <div className="text-center" id="square-assets">
                                 <SocialImage post={post} width="500px" height="500px">
                                     <h3 className="m-0 uppercase text-4xl my-6">{dayTitle(post.slug)}</h3>
                                     {makeExcerpt(post.content).split(', ').map((element, index) =>
@@ -75,7 +75,7 @@ export default function Assets({post}) {
                             </div>
 
                             <div className="flex justify-center my-8">
-                                <button>Download Square Files</button>
+                                <button onClick={() => zipImages('square-assets', post.slug + '_square')}>Download Square Files</button>
                             </div>
 
                         </section>
@@ -86,7 +86,7 @@ export default function Assets({post}) {
                         
                             <h3 className="text-center">Tall</h3>
 
-                            <div className="text-center">
+                            <div className="text-center" id="tall-assets">
                                 <SocialImage post={post} width="360px" height="640px">
                                     <h3 className="m-0 uppercase text-3xl my-6">{dayTitle(post.slug)}</h3>
                                     {makeExcerpt(post.content).split(', ').map((element, index) =>
@@ -108,7 +108,7 @@ export default function Assets({post}) {
                             </div>
 
                             <div className="flex justify-center my-8">
-                                <button>Download Tall Files</button>
+                                <button onClick={() => zipImages('tall-assets', post.slug + '_tall')}>Download Tall Files</button>
                             </div>
 
                         </section>
@@ -119,7 +119,7 @@ export default function Assets({post}) {
                         
                             <h3 className="text-center">Wide</h3>
 
-                            <div className="text-center">
+                            <div className="text-center" id="wide-assets">
                                 <SocialImage post={post} width="640px" height="360px" className="flex-1">
                                     <div className="h-full flex items-center w-full">
                                         <h3 className="mr-10 ml-0 uppercase text-3xl my-6 w-1/2 text-right">{dayTitle(post.slug)}</h3>
@@ -145,7 +145,7 @@ export default function Assets({post}) {
                             </div>
 
                             <div className="flex justify-center my-8">
-                                <button>Download Wide Files</button>
+                                <button onClick={() => zipImages('wide-assets', post.slug + '_wide')}>Download Wide Files</button>
                             </div>
 
                         </section>

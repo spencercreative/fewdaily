@@ -6,13 +6,13 @@ import 'fontsource-mulish/900.css'
 import '../styles/index.css'
 
 const tagManagerArgs = {
-  gtmId: 'GTM-K33MKGJ'
+  gtmId: 'GTM-PDBZG4Q'
 }
 
 class MyApp extends App {
-//   componentDidMount () {
-//     TagManager.initialize(tagManagerArgs)
-//   }
+  componentDidMount () {
+    TagManager.initialize(tagManagerArgs)
+  }
 
   render () {
     const { Component, pageProps } = this.props

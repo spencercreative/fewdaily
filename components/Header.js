@@ -27,7 +27,7 @@ function SocialToggle() {
         main.classList.add('hidden')
         footer.classList.add('hidden')
         headerHome.setAttribute('tabindex', -1)
-        button.innerHTML = '<span className="block">Close</span>'
+        button.innerHTML = '<span className="block">close</span>'
     } else {
         menu.classList.add('hidden')
         menu.classList.remove('flex', 'active')
@@ -43,11 +43,11 @@ function SocialToggle() {
 function Header({day, router}) {
 
     return (
-        <header role="banner" className={'flex w-full px-wrap items-center py-2 font-black print:hidden' + ' ' + day} style={{minHeight: '58px'}}>
+        <header role="banner" className={'flex w-full px-wrap items-center py-2 font-black print:hidden' + ' bg-' + day} style={{minHeight: '58px'}}>
 
             {router.pathname === '/tags' ? (
                 <a className="flex items-center leading-none text-lg font-bold" title="Tags" onClick={() => router.back()}>
-                    <FiCornerUpLeft aria-hidden="true"/><span className="ml-1 hidden md:block">Back</span>
+                    <FiCornerUpLeft aria-hidden="true"/><span className="ml-1 hidden md:block">back</span>
                 </a>
             ) : (
                 <>
@@ -67,7 +67,7 @@ function Header({day, router}) {
                 @<span className="hidden md:block">fewdaily</span>
             </button>
 
-            <nav id="social-nav" className="fixed hidden items-start md:items-center justify-center translate-x-full top-0 left-0 w-full h-full py-20 px-wrap bg-white z-10 overflow-y-auto">
+            <nav id="social-nav" className={'fixed hidden items-start md:items-center justify-center translate-x-full top-0 left-0 w-full h-full py-20 px-wrap bg-white z-10 overflow-y-auto' + ' ' + day}>
                 <ul className="flex flex-wrap justify-center items-center text-6xl -m-4">
                     <SocialLink icon={<FiInstagram className="stroke-1-1/2"/>} to="https://www.instagram.com/fewdaily/" title="Instagram" />
                     <SocialLink icon={<FiTwitter className="stroke-1-1/2"/>} to="https://twitter.com/fewdaily" title="Twitter" />

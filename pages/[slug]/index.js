@@ -12,7 +12,7 @@ import { FiFacebook, FiLinkedin, FiTwitter, FiMail, FiCopy, FiMic, FiPrinter } f
 
 const SocialShare = (props) => (
     <li className="mr-2">
-        <a className="inline-block" href={props.href} target="_blank" rel="noreferrer" title={props.title} onClick={props.onClick}>
+        <a className="inline-block text-2xl md:text-xl" href={props.href} target="_blank" rel="noreferrer" title={props.title} onClick={props.onClick}>
             <span>{props.icon}</span>
             <span className="sr-only">{props.title}</span>
         </a>
@@ -23,7 +23,7 @@ const AssetsLink = (props) => (
     <>
     <li className="ml-2">
         <Link href={props.link}>
-            <a className="inline-block" title={props.title}>
+            <a className="inline-block text-2xl md:text-xl" title={props.title}>
                 <span>{props.icon}</span>
                 <span className="sr-only">{props.title}</span>
             </a>
@@ -68,7 +68,7 @@ export default function Post({post}) {
 
                         <Sponsor day={theNamedDay([post.slug])} />
 
-                        <div className="mt-16" dangerouslySetInnerHTML={{__html: post.renderedContent}} />
+                        <div className="mt-10 md:mt-16" dangerouslySetInnerHTML={{__html: post.renderedContent}} />
 
                         <GetEpisode date={post.slug}/>
 

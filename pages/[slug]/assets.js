@@ -9,7 +9,7 @@ import markdownToHtml from 'lib/markdownToHtml'
 import { theNamedDay, splitSections, makeExcerpt, dayTitle, theDateString, zipImages } from 'lib/helpers'
 
 function SocialImage(props) {
-    const cornerStyles = 'absolute py-8 px-10 text-2xs whitespace-no-wrap font-black'
+    const cornerStyles = 'absolute py-8 px-10 text-3xs whitespace-no-wrap font-black'
 
     return (
         <div style={{maxWidth: props.width}} className="asset-container inline-block text-left">
@@ -57,8 +57,9 @@ export default function Assets({post}) {
                                 <SocialImage post={post} width="500px" height="500px">
                                     <h3 className="m-0 uppercase text-4xl my-6">{dayTitle(post.slug)}</h3>
                                     {makeExcerpt(post.content).split(', ').map((element, index) =>
-                                        <h4 className="text-xl mt-0 mb-3" key={index}>{element}</h4>
+                                        <h4 className="text-xl mt-0 mb-3" key={index}>{element.trim()}</h4>
                                     )}
+                                    {console.log(makeExcerpt(post.content).split(', '))}
                                 </SocialImage>
 
                                 {splitSections(post.renderedContent).map((element, index) =>
@@ -90,7 +91,7 @@ export default function Assets({post}) {
                                 <SocialImage post={post} width="360px" height="640px">
                                     <h3 className="m-0 uppercase text-3xl my-6">{dayTitle(post.slug)}</h3>
                                     {makeExcerpt(post.content).split(', ').map((element, index) =>
-                                        <h4 className="text-base mt-0 mb-3" key={index}>{element}</h4>
+                                        <h4 className="text-base mt-0 mb-3" key={index}>{element.trim()}</h4>
                                     )}
                                 </SocialImage>
 
@@ -125,7 +126,7 @@ export default function Assets({post}) {
                                         <h3 className="mr-10 ml-0 uppercase text-3xl my-6 w-1/2 text-right">{dayTitle(post.slug)}</h3>
                                         <div className="w-1/2">
                                             {makeExcerpt(post.content).split(', ').map((element, index) =>
-                                                <h4 className="text-base mt-0 mb-3" key={index}>{element}</h4>
+                                                <h4 className="text-base mt-0 mb-3" key={index}>{element.trim()}</h4>
                                             )}
                                         </div>
                                     </div>

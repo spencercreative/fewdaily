@@ -8,7 +8,7 @@ import { getPostBySlug, getAllPosts } from 'lib/api'
 import markdownToHtml from 'lib/markdownToHtml'
 import { GetEpisode } from 'lib/podcastRss'
 import { theNamedDay, stringToSlug, makeExcerpt, dayTitle, theDateString, hashtagList } from 'lib/helpers'
-import { FiFacebook, FiLinkedin, FiTwitter, FiMail, FiCopy, FiMic, FiPrinter } from 'react-icons/fi'
+import { FiFacebook, FiLinkedin, FiTwitter, FiMail, FiFolder, FiMic, FiPrinter } from 'react-icons/fi'
 
 const SocialShare = (props) => (
     <li className="mr-2">
@@ -86,7 +86,7 @@ export default function Post({post}) {
                             <div>
                                 <p className="mb-1 text-xs text-right">Assets</p>
                                 <ul className="flex flex-wrap">
-                                    {theNamedDay([post.slug]) !== 'tuesday' && <AssetsLink title="Social Assets" icon={<FiCopy/>} link={'/' + post.slug + '/assets'} />}
+                                    {theNamedDay([post.slug]) !== 'tuesday' && <AssetsLink title="Social Assets" icon={<FiFolder/>} link={'/' + post.slug + '/assets'} />}
                                     <AssetsLink title="Audio Script" icon={<FiMic/>} link={'/' + post.slug + '/script'} />
                                 </ul>
                             </div>

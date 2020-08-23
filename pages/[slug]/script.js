@@ -55,7 +55,7 @@ export default function Post({post}) {
                                 </ul>
                                 </>
                             ):(
-                            <p>Today is <span>{theDateString(post.slug)}</span> and for this <span>{dayTitle(post.slug)}</span> episode we're covering {post.excerpt}</p>
+                            <p>Today is <span>{theDateString(post.slug)}</span>, and for this <span>{dayTitle(post.slug)}</span> episode we're covering {post.excerpt}</p>
                             )}
                             <p>Let's dive in!</p>
                             {post.excerpt !== undefined && <p>----</p>}

@@ -18,9 +18,11 @@ export default function Home({ allPosts }) {
                 <>
                 <ListSearch/>
                 <PostList posts={allPosts.slice(0,25)} count={allPosts.slice(0,25).length}/>
+                {allPosts.length > 25 &&
                 <div className="flex justify-start py-2">
                     <Link href="/all"><a className="text-sm flex items-center">View All Posts<FiArrowRight className="ml-1"/></a></Link>
                 </div>
+                }
                 </>
             }
         </MainLayout>

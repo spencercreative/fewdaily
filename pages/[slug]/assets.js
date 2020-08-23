@@ -59,7 +59,6 @@ export default function Assets({post}) {
                                     {makeExcerpt(post.content).split(', ').map((element, index) =>
                                         <h4 className="text-xl mt-0 mb-3" key={index}>{element.trim()}</h4>
                                     )}
-                                    {console.log(makeExcerpt(post.content).split(', '))}
                                 </SocialImage>
 
                                 {splitSections(post.renderedContent).map((element, index) =>

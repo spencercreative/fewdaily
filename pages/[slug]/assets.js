@@ -3,7 +3,7 @@ import RenderAsImage from 'react-render-as-image'
 import MetaHead from 'components/MetaHead'
 import Link from 'next/link'
 import ErrorPage from 'next/error'
-import MainLayout from 'layouts/MainLayout'
+import PageLayout from 'layouts/PageLayout'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import markdownToHtml from 'lib/markdownToHtml'
 import { theNamedDay, splitSections, makeExcerpt, dayTitle, theDateString, zipImages } from 'lib/helpers'
@@ -40,7 +40,7 @@ export default function Assets({post}) {
             {router.isFallback ? (
                 <div>Loading...</div>
             ) : (
-                <MainLayout day={theNamedDay([post.slug])}>
+                <PageLayout day={theNamedDay([post.slug])}>
                     <article id="assets" className="max-w-4xl mx-auto">
                         <MetaHead title={'Assets for ' + theDateString(post.slug)} description={post.excerpt !== undefined ? post.excerpt : makeExcerpt(post.content)} day={theNamedDay([post.slug])} />
                         
@@ -166,7 +166,7 @@ export default function Assets({post}) {
                         </section>
 
                     </article>
-                </MainLayout>
+                </PageLayout>
             )}
         </>
     )

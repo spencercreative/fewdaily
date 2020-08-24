@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import MetaHead from 'components/MetaHead'
 import ErrorPage from 'next/error'
-import MainLayout from 'layouts/MainLayout'
+import PageLayout from 'layouts/PageLayout'
 import Sponsor from 'components/Sponsor'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import markdownToHtml from 'lib/markdownToHtml'
@@ -50,49 +50,47 @@ export default function Post({post}) {
             {router.isFallback ? (
                 <div>Loading...</div>
             ) : (
-                <MainLayout day={theNamedDay([post.slug])}>
-                    <article className="max-w-4xl mx-auto">
-                        <MetaHead title={dayTitle(post.slug) + ' | ' + theDateString(post.slug)} description={excerpt} day={theNamedDay([post.slug])} type="article" />
-                        
-                        <header>
-                            <p className="mb-0 font-bold text-sm">{theDateString(post.slug)}</p>
-                            <h1 className="my-0 uppercase">{dayTitle(post.slug)}</h1>
-                            {post.tags !== undefined &&
-                                <p>
-                                    {post.tags.map((tag) => 
-                                        <Link href={'/tags/' + stringToSlug(tag)} key={stringToSlug(tag)}><a className="mr-3 inline-block text-sm">{tag}</a></Link>
-                                    )}
-                                </p>
-                            }
-                        </header>
+                <PageLayout day={theNamedDay([post.slug])}>
+                    <MetaHead title={dayTitle(post.slug) + ' | ' + theDateString(post.slug)} description={excerpt} day={theNamedDay([post.slug])} type="article" />
+                    
+                    <header>
+                        <p className="mb-0 font-bold text-sm">{theDateString(post.slug)}</p>
+                        <h1 className="my-0 uppercase">{dayTitle(post.slug)}</h1>
+                        {post.tags !== undefined &&
+                            <p>
+                                {post.tags.map((tag) => 
+                                    <Link href={'/tags/' + stringToSlug(tag)} key={stringToSlug(tag)}><a className="mr-3 inline-block text-sm">{tag}</a></Link>
+                                )}
+                            </p>
+                        }
+                    </header>
 
-                        <Sponsor day={theNamedDay([post.slug])} />
+                    <Sponsor day={theNamedDay([post.slug])} />
 
-                        <div className="mt-10 md:mt-16" dangerouslySetInnerHTML={{__html: post.renderedContent}} />
+                    <div className="mt-10 md:mt-16" dangerouslySetInnerHTML={{__html: post.renderedContent}} />
 
-                        <GetEpisode date={post.slug}/>
+                    <GetEpisode date={post.slug}/>
 
-                        <footer className="border-t border-solid border-gray py-4 flex justify-between print:hidden">
-                            <div>
-                                <p className="mb-1 text-xs">Share</p>
-                                <ul className="flex flex-wrap">
-                                    <SocialShare title="Facebook" icon={<FiFacebook/>} href={'https://www.facebook.com/sharer/sharer.php?u=' + url} />
-                                    <SocialShare title="Twitter" icon={<FiTwitter/>} href={'https://twitter.com/intent/tweet?text=' + excerpt + '%0a'+ hashtags + '%0a&url=' + url} />
-                                    <SocialShare title="LinkedIn" icon={<FiLinkedin/>} href={'https://www.linkedin.com/sharing/share-offsite?url=' + url + '&summary=' + excerpt} />
-                                    <SocialShare title="Email" icon={<FiMail/>} href={'mailto:?subject=' + dayTitle(post.slug) + ' | ' + theDateString(post.slug) + '&body=' + excerpt + '%0a' + url} />
-                                    <SocialShare title="Print" icon={<FiPrinter/>} onClick={() => window.print()} />
-                                </ul>
-                            </div>
-                            <div>
-                                <p className="mb-1 text-xs text-right">Assets</p>
-                                <ul className="flex flex-wrap">
-                                    <AssetsLink title="Social Assets" icon={<FiFolder/>} link={'/' + post.slug + '/assets'} />
-                                    <AssetsLink title="Audio Script" icon={<FiMic/>} link={'/' + post.slug + '/script'} />
-                                </ul>
-                            </div>
-                        </footer>
-                    </article>
-                </MainLayout>
+                    <footer className="border-t border-solid border-gray py-4 flex justify-between print:hidden">
+                        <div>
+                            <p className="mb-1 text-xs">Share</p>
+                            <ul className="flex flex-wrap">
+                                <SocialShare title="Facebook" icon={<FiFacebook/>} href={'https://www.facebook.com/sharer/sharer.php?u=' + url} />
+                                <SocialShare title="Twitter" icon={<FiTwitter/>} href={'https://twitter.com/intent/tweet?text=' + excerpt + '%0a'+ hashtags + '%0a&url=' + url} />
+                                <SocialShare title="LinkedIn" icon={<FiLinkedin/>} href={'https://www.linkedin.com/sharing/share-offsite?url=' + url + '&summary=' + excerpt} />
+                                <SocialShare title="Email" icon={<FiMail/>} href={'mailto:?subject=' + dayTitle(post.slug) + ' | ' + theDateString(post.slug) + '&body=' + excerpt + '%0a' + url} />
+                                <SocialShare title="Print" icon={<FiPrinter/>} onClick={() => window.print()} />
+                            </ul>
+                        </div>
+                        <div>
+                            <p className="mb-1 text-xs text-right">Assets</p>
+                            <ul className="flex flex-wrap">
+                                <AssetsLink title="Social Assets" icon={<FiFolder/>} link={'/' + post.slug + '/assets'} />
+                                <AssetsLink title="Audio Script" icon={<FiMic/>} link={'/' + post.slug + '/script'} />
+                            </ul>
+                        </div>
+                    </footer>
+                </PageLayout>
             )}
         </>
     )

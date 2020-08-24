@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import MetaHead from 'components/MetaHead'
 import ErrorPage from 'next/error'
-import MainLayout from 'layouts/MainLayout'
+import PageLayout from 'layouts/PageLayout'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import markdownToHtml from 'lib/markdownToHtml'
 import { theNamedDay, makeExcerpt, dayTitle, theDateString, transcriptText, headingList } from 'lib/helpers'
@@ -35,7 +35,7 @@ export default function Post({post}) {
             {router.isFallback ? (
                 <div>Loading...</div>
             ) : (
-                <MainLayout day={theNamedDay([post.slug])}>
+                <PageLayout day={theNamedDay([post.slug])}>
                     <article className="max-w-4xl mx-auto">
                         <MetaHead title={'Audio Script for ' + theDateString(post.slug)} description={post.excerpt !== undefined ? post.excerpt : makeExcerpt(post.content)} day={theNamedDay([post.slug])} />
                         
@@ -69,7 +69,7 @@ export default function Post({post}) {
                         </div>
 
                     </article>
-                </MainLayout>
+                </PageLayout>
             )}
         </>
     )

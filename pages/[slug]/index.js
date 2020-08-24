@@ -86,7 +86,7 @@ export default function Post({post}) {
                             <div>
                                 <p className="mb-1 text-xs text-right">Assets</p>
                                 <ul className="flex flex-wrap">
-                                    {theNamedDay([post.slug]) !== 'tuesday' && <AssetsLink title="Social Assets" icon={<FiFolder/>} link={'/' + post.slug + '/assets'} />}
+                                    <AssetsLink title="Social Assets" icon={<FiFolder/>} link={'/' + post.slug + '/assets'} />
                                     <AssetsLink title="Audio Script" icon={<FiMic/>} link={'/' + post.slug + '/script'} />
                                 </ul>
                             </div>

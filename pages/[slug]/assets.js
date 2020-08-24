@@ -56,12 +56,15 @@ export default function Assets({post}) {
                             <div className="text-center" id="square-assets">
                                 <SocialImage post={post} width="500px" height="500px">
                                     <h3 className="m-0 uppercase text-4xl my-6">{dayTitle(post.slug)}</h3>
-                                    {makeExcerpt(post.content).split(', ').map((element, index) =>
-                                        <h4 className="text-xl mt-0 mb-3" key={index}>{element.trim()}</h4>
-                                    )}
+                                    { post.excerpt !== undefined ? (
+                                        <h4 className="text-xl mt-0 mb-3">{post.excerpt}</h4>
+                                    ) : (
+                                        makeExcerpt(post.content).split(', ').map((element, index) =>
+                                            <h4 className="text-xl mt-0 mb-3" key={index}>{element.trim()}</h4>
+                                    ))}
                                 </SocialImage>
 
-                                {splitSections(post.renderedContent).map((element, index) =>
+                                {post.excerpt === undefined && splitSections(post.renderedContent).map((element, index) =>
                                     <SocialImage post={post} width="500px" height="500px" key={index}>
                                         <div dangerouslySetInnerHTML={{__html: element}} />
                                     </SocialImage>
@@ -69,7 +72,9 @@ export default function Assets({post}) {
 
                                 <SocialImage post={post} width="500px" height="500px">
                                     <div className="h-full flex items-center">
-                                        <h3 className="m-0 uppercase text-4xl">Check Back Tomorrow</h3>
+                                        <h3 className="m-0 uppercase text-4xl">
+                                            {post.excerpt !== undefined ? 'View post on our website' : 'Check Back Tomorrow'}
+                                        </h3>
                                     </div>
                                 </SocialImage>
                             </div>
@@ -89,12 +94,15 @@ export default function Assets({post}) {
                             <div className="text-center" id="tall-assets">
                                 <SocialImage post={post} width="360px" height="640px">
                                     <h3 className="m-0 uppercase text-3xl my-6">{dayTitle(post.slug)}</h3>
-                                    {makeExcerpt(post.content).split(', ').map((element, index) =>
-                                        <h4 className="text-base mt-0 mb-3" key={index}>{element.trim()}</h4>
-                                    )}
+                                    { post.excerpt !== undefined ? (
+                                        <h4 className="text-xl mt-0 mb-3">{post.excerpt}</h4>
+                                    ) : (
+                                        makeExcerpt(post.content).split(', ').map((element, index) =>
+                                            <h4 className="text-xl mt-0 mb-3" key={index}>{element.trim()}</h4>
+                                    ))}
                                 </SocialImage>
 
-                                {splitSections(post.renderedContent).map((element, index) =>
+                                {post.excerpt === undefined && splitSections(post.renderedContent).map((element, index) =>
                                     <SocialImage post={post} width="360px" height="640px" key={index}>
                                         <div dangerouslySetInnerHTML={{__html: element}} />
                                     </SocialImage>
@@ -102,7 +110,9 @@ export default function Assets({post}) {
 
                                 <SocialImage post={post} width="360px" height="640px">
                                     <div className="h-full flex items-center">
-                                        <h3 className="m-0 uppercase text-3xl">Check Back Tomorrow</h3>
+                                        <h3 className="m-0 uppercase text-3xl">
+                                            {post.excerpt !== undefined ? 'View post on our website' : 'Check Back Tomorrow'}
+                                        </h3>
                                     </div>
                                 </SocialImage>
                             </div>
@@ -124,14 +134,17 @@ export default function Assets({post}) {
                                     <div className="h-full flex items-center w-full">
                                         <h3 className="mr-10 ml-0 uppercase text-3xl my-6 w-1/2 text-right">{dayTitle(post.slug)}</h3>
                                         <div className="w-1/2">
-                                            {makeExcerpt(post.content).split(', ').map((element, index) =>
-                                                <h4 className="text-base mt-0 mb-3" key={index}>{element.trim()}</h4>
-                                            )}
+                                            { post.excerpt !== undefined ? (
+                                                <h4 className="text-xl mt-0 mb-3">{post.excerpt}</h4>
+                                            ) : (
+                                                makeExcerpt(post.content).split(', ').map((element, index) =>
+                                                    <h4 className="text-xl mt-0 mb-3" key={index}>{element.trim()}</h4>
+                                            ))}
                                         </div>
                                     </div>
                                 </SocialImage>
 
-                                {splitSections(post.renderedContent).map((element, index) =>
+                                {post.excerpt === undefined && splitSections(post.renderedContent).map((element, index) =>
                                     <SocialImage className="flex" post={post} width="640px" height="360px" key={index}>
                                         <div dangerouslySetInnerHTML={{__html: element}} />
                                     </SocialImage>
@@ -139,7 +152,9 @@ export default function Assets({post}) {
 
                                 <SocialImage post={post} width="640px" height="360px" className="flex-1">
                                     <div className="h-full flex items-center w-full">
-                                        <h3 className="m-0 uppercase text-3xl w-full text-center">Check Back Tomorrow</h3>
+                                        <h3 className="m-0 uppercase text-3xl w-full text-center">
+                                            {post.excerpt !== undefined ? 'View post on our website' : 'Check Back Tomorrow'}
+                                        </h3>
                                     </div>
                                 </SocialImage>
                             </div>
@@ -179,6 +194,7 @@ export async function getStaticProps({ params }) {
         'podcast',
         'content',
         'tags',
+        'excerpt',
     ])
     const renderedContent = await markdownToHtml(post.content || '')
 

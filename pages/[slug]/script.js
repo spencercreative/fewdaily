@@ -47,7 +47,7 @@ export default function Post({post}) {
                         <div className="mt-10 md:mt-16" id="audio-script">
                             {post.excerpt === undefined ? (
                                 <>
-                                <p>Today is <span>{theDateString(post.slug)}</span> and for this <span>{dayTitle(post.slug)}</span> episode we're covering:</p>
+                                <p>Today is <span>{theDateString(post.slug)}</span>, and for this <span>{dayTitle(post.slug)}</span> episode we're covering:</p>
                                 <ul className="list-disc pl-6 mb-8">
                                     {headingList(post.content).map((heading, index) => 
                                         <li key={index}>{heading}</li>

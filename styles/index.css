@@ -72,20 +72,28 @@ button {
     transition: box-shadow ease .3s;
 }
 
-input {
+input,
+textarea {
     @apply border;
     @apply border-solid;
     @apply border-gray;
     @apply rounded;
     @apply p-2;
-    @apply mx-4;
     @apply w-full;
     @apply bg-gray;
     @apply bg-opacity-25;
+    @apply text-base;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
     @apply bg-opacity-0;
+}
+
+input[type="checkbox"] {
+    @apply inline-block;
+    @apply w-auto;
+    @apply mr-2;
 }
 
 input + button {

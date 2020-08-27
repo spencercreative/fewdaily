@@ -1,3 +1,4 @@
 .next
 node_modules
 .mdx-data
+public/feed.xml

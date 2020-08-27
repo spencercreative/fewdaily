@@ -11,6 +11,7 @@
     "file-saver": "^2.0.2",
     "fontsource-mulish": "^3.0.5",
     "front-matter": "^4.0.2",
+    "globby": "^11.0.1",
     "gray-matter": "^4.0.2",
     "highlight.js": "^10.1.2",
     "jszip": "^3.5.0",
@@ -29,6 +30,7 @@
     "react-say": "^2.0.1",
     "remark": "^12.0.1",
     "remark-html": "^12.0.0",
+    "rss": "^1.2.2",
     "rss-parser": "^3.9.0"
   },
   "devDependencies": {

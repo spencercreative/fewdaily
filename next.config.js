@@ -4,5 +4,12 @@ const withMDX = require('@next/mdx')({
 
 module.exports = withMDX({
     pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-    target: 'serverless'
+    target: 'serverless',
+    webpack: (config, { isServer }) => {
+        if (isServer) {
+          require('./lib/rss');
+        }
+  
+        return config;
+    },
 })

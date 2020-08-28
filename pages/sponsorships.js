@@ -8,7 +8,7 @@ const title = "Sponsorships"
 const Sponsorships = (props) => (
     <PageLayout day={getCurrentDay()}>
         <MetaHead title={title} description="Become a sponsor of Front-End Web Daily to promote your business." day={getCurrentDay()} />
-        <h1>{title}</h1>
+        <h1 className="mt-0">{title}</h1>
         <p>Interested in promoting your business with Front-End Web Daily? We offer sponsorship opportunities in a variety of way across all our media channels.</p>
         <p>Please fill out the form below to get in touch with us for more information.</p>
         <NetlifyForm name={title}>

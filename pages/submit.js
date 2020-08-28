@@ -8,7 +8,7 @@ const title = "Submit a Story"
 const Submit = (props) => (
     <PageLayout day={getCurrentDay()}>
         <MetaHead title={title} description="Submit your story to be featured in a Front-End Web Daily post!" day={getCurrentDay()} />
-        <h1>{title}</h1>
+        <h1 className="mt-0">{title}</h1>
         <p>Have a great story or latest news? We appreciate all the help we can get, so feel free to submit a link below! Include your Instagram and Twitter handles if you wish to be credited.</p>
         <NetlifyForm name={title}>
             {({ loading, error, success }) => (
@@ -34,7 +34,7 @@ const Submit = (props) => (
                         </label>
                         <label>
                             <span className="sr-only">Link to Story *</span>
-                            <input type='url' name='link' required placeholder="Link to Story *" className="rounded-none border-b-0" />
+                            <input type='text' name='link' required placeholder="Link to Story *" className="rounded-none border-b-0" />
                         </label>
                         <label>
                             <span className="sr-only">Twitter Handle</span>

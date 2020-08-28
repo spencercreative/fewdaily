@@ -17,7 +17,7 @@ export default function Home({ allPosts }) {
             {allPosts.length > 0 && 
                 <>
                 <ListSearch/>
-                <PostList posts={allPosts.slice(0,25)} count={allPosts.slice(0,25).length}/>
+                <PostList posts={allPosts.slice(0,25)} count={allPosts.slice(0,25).length} featured={1}/>
                 {allPosts.length > 25 &&
                 <div className="flex justify-start py-2">
                     <Link href="/all"><a className="text-sm flex items-center">View All Posts<FiArrowRight className="ml-1"/></a></Link>

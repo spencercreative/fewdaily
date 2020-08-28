@@ -1,6 +1,11 @@
-import { listSearchSort } from 'lib/helpers'
+import { listSearchSort, getSearchQuery } from 'lib/helpers'
 
 export default function ListSearch() {
+
+    if (typeof window !== "undefined") {
+        // getSearchQuery()
+    }
+
     return (
         <>
         <div className="mb-4 flex items-center flex-col md:flex-row print:hidden">

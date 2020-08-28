@@ -185,6 +185,62 @@ input + button {
     @apply bg-gray;
 }
 
+.monday *::selection {
+    @apply bg-blue;
+}
+
+.monday *::-moz-selection {
+    @apply bg-blue;
+}
+
+.tuesday *::selection {
+    @apply bg-red;
+}
+
+.tuesday *::-moz-selection {
+    @apply bg-red;
+}
+
+.wednesday *::selection {
+    @apply bg-purple;
+}
+
+.wednesday *::-moz-selection {
+    @apply bg-purple;
+}
+
+.thursday *::selection {
+    @apply bg-orange;
+}
+
+.thursday *::-moz-selection {
+    @apply bg-orange;
+}
+
+.friday *::selection {
+    @apply bg-green;
+}
+
+.friday *::-moz-selection {
+    @apply bg-green;
+}
+
+.saturday *::selection {
+    @apply bg-yellow;
+}
+
+.saturday *::-moz-selection {
+    @apply bg-yellow;
+}
+
+.sunday *::selection {
+    @apply bg-gray;
+}
+
+.sunday *::-moz-selection {
+    @apply bg-gray;
+}
+
 header[role="banner"] a, header[role="banner"] button, .sponsor a, .sponsor button {
     box-shadow: inset 0 -.15em 0 theme('colors.white');
 }

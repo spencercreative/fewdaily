@@ -59,7 +59,7 @@ function Header({day, router}) {
                 </>
             )}
 
-            <div id="header-home" className="flex-1 px-4 text-center uppercase md:text-2xl">
+            <div id="header-home" className="flex-1 px-4 text-center uppercase sm:text-2xl">
                 <Link href="/"><a className="leading-none">Front-End Web Daily</a></Link>
             </div>
 

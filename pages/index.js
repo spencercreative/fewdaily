@@ -8,6 +8,8 @@ import MetaHead from 'components/MetaHead'
 import Sponsor from 'components/Sponsor'
 import { FiArrowRight } from 'react-icons/fi'
 
+const postListMax = 20
+
 export default function Home({ allPosts }) {
 
     return (
@@ -17,10 +19,10 @@ export default function Home({ allPosts }) {
             {allPosts.length > 0 && 
                 <>
                 <ListSearch/>
-                <PostList posts={allPosts.slice(0,25)} count={allPosts.slice(0,25).length} featured={1}/>
-                {allPosts.length > 25 &&
-                <div className="flex justify-start py-2">
-                    <Link href="/all"><a className="text-sm flex items-center">View All Posts<FiArrowRight className="ml-1"/></a></Link>
+                <PostList posts={allPosts.slice(0,postListMax)} count={allPosts.length > postListMax ? postListMax + '+' : allPosts.slice(0,postListMax).length} featured={1}/>
+                {allPosts.length > postListMax &&
+                <div className="flex justify-center py-4">
+                    <Link href="/all"><a className="text-lg flex items-center">View All Posts<FiArrowRight className="ml-1"/></a></Link>
                 </div>
                 }
                 </>

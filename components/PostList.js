@@ -24,7 +24,7 @@ export default function PostList( props ) {
 
     return (
         <>
-        <p className="mt-0 mb-1 text-xs text-right">{props.count} post{ props.count > 1 && 's' }</p>
+        <p className="mt-0 mb-1 text-xs text-right">{props.count} post{ (props.count > 1 || props.count.includes('+')) && 's' }</p>
         <ul id="postList" className="border-t border-solid border-gray">
             { props.featured !== undefined && featuredPosts.map((post) =>
                 <li className={'flex flex-col items-center featured post-list-item text-center text-xl py-8 border-b border-solid border-gray' + ' ' + theNamedDay(post.slug)} key={post.slug}>

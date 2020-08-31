@@ -61,7 +61,7 @@ export default function Post({post}) {
                             {post.excerpt !== undefined && <p>----</p>}
                             <div dangerouslySetInnerHTML={{__html: transcriptText(post.renderedContent)}} />
                             <p>----</p>
-                            <p>Want to know more? Head to <a href="https://fewdaily.com">fewdaily.com</a> for more of today’s topics and other front-end web content! That's all for today, tune in tomorrow!</p>
+                            <p>Want to know more? Head to <a href="https://fewdaily.com">fewdaily.com</a> for more of today’s topics and other front-end web content! If you liked what you heard be sure to rate, review, and subscribe on your platform of choice. That's all for today, tune in tomorrow!</p>
                         </div>
 
                         <div className="border-t border-solid border-gray py-4 print:hidden text-2xl md:text-xl">

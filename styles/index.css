@@ -267,11 +267,27 @@ header[role='banner'] .sunday button:hover {
 	@apply bg-blue;
 }
 
+article.monday *::selection {
+	@apply bg-blue;
+}
+
+article.monday *::-moz-selection {
+	@apply bg-blue;
+}
+
 .tuesday *::selection {
 	@apply bg-red;
 }
 
 .tuesday *::-moz-selection {
+	@apply bg-red;
+}
+
+article.tuesday *::selection {
+	@apply bg-red;
+}
+
+article.tuesday *::-moz-selection {
 	@apply bg-red;
 }
 
@@ -283,11 +299,27 @@ header[role='banner'] .sunday button:hover {
 	@apply bg-purple;
 }
 
+article.wednesday *::selection {
+	@apply bg-purple;
+}
+
+article.wednesday *::-moz-selection {
+	@apply bg-purple;
+}
+
 .thursday *::selection {
 	@apply bg-orange;
 }
 
 .thursday *::-moz-selection {
+	@apply bg-orange;
+}
+
+article.thursday *::selection {
+	@apply bg-orange;
+}
+
+article.thursday *::-moz-selection {
 	@apply bg-orange;
 }
 
@@ -299,6 +331,14 @@ header[role='banner'] .sunday button:hover {
 	@apply bg-green;
 }
 
+article.friday *::selection {
+	@apply bg-green;
+}
+
+article.friday *::-moz-selection {
+	@apply bg-green;
+}
+
 .saturday *::selection {
 	@apply bg-yellow;
 }
@@ -307,11 +347,27 @@ header[role='banner'] .sunday button:hover {
 	@apply bg-yellow;
 }
 
+article.saturday *::selection {
+	@apply bg-yellow;
+}
+
+article.saturday *::-moz-selection {
+	@apply bg-yellow;
+}
+
 .sunday *::selection {
 	@apply bg-gray;
 }
 
 .sunday *::-moz-selection {
+	@apply bg-gray;
+}
+
+article.sunday *::selection {
+	@apply bg-gray;
+}
+
+article.sunday *::-moz-selection {
 	@apply bg-gray;
 }
 

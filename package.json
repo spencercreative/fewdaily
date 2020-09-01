@@ -1,43 +1,43 @@
 {
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "postbuild": "next-on-netlify"
-  },
-  "dependencies": {
-    "@mdx-js/loader": "^1.6.16",
-    "@next/mdx": "^9.5.2",
-    "date-fns": "^2.15.0",
-    "file-saver": "^2.0.2",
-    "fontsource-mulish": "^3.0.5",
-    "front-matter": "^4.0.2",
-    "globby": "^11.0.1",
-    "gray-matter": "^4.0.2",
-    "highlight.js": "^10.1.2",
-    "jszip": "^3.5.0",
-    "moment-timezone": "^0.5.31",
-    "next": "^9.5.2",
-    "next-mdx-enhanced": "^3.1.0",
-    "next-on-netlify": "^2.3.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-gtm-module": "^2.0.10",
-    "react-icons": "^3.10.0",
-    "react-mailchimp-subscribe": "^2.1.0",
-    "react-netlify-form": "^2.1.5",
-    "react-player": "^2.6.0",
-    "react-render-as-image": "^1.1.1",
-    "react-say": "^2.0.1",
-    "remark": "^12.0.1",
-    "remark-html": "^12.0.0",
-    "rss": "^1.2.2",
-    "rss-parser": "^3.9.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "eslint": "^7.6.0",
-    "eslint-plugin-react": "^7.20.6",
-    "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.6.2"
-  }
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"postbuild": "next-on-netlify"
+	},
+	"dependencies": {
+		"@mdx-js/loader": "^1.6.16",
+		"@next/mdx": "^9.5.2",
+		"date-fns": "^2.15.0",
+		"file-saver": "^2.0.2",
+		"fontsource-mulish": "^3.0.5",
+		"front-matter": "^4.0.2",
+		"globby": "^11.0.1",
+		"gray-matter": "^4.0.2",
+		"highlight.js": "^10.1.2",
+		"jszip": "^3.5.0",
+		"moment-timezone": "^0.5.31",
+		"next": "^9.5.2",
+		"next-mdx-enhanced": "^3.1.0",
+		"next-on-netlify": "^2.3.2",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-gtm-module": "^2.0.10",
+		"react-icons": "^3.10.0",
+		"react-mailchimp-subscribe": "^2.1.0",
+		"react-netlify-form": "^2.1.5",
+		"react-player": "^2.6.0",
+		"react-render-as-image": "^1.1.1",
+		"react-say": "^2.0.1",
+		"remark": "^12.0.1",
+		"remark-html": "^12.0.0",
+		"rss": "^1.2.2",
+		"rss-parser": "^3.9.0"
+	},
+	"devDependencies": {
+		"autoprefixer": "^9.8.6",
+		"eslint": "^7.6.0",
+		"eslint-plugin-react": "^7.20.6",
+		"postcss-preset-env": "^6.7.0",
+		"tailwindcss": "^1.6.2"
+	}
 }

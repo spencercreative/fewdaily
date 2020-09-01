@@ -72,7 +72,7 @@ export default function Post({ post }) {
 	var hashtags = hashtagList(post.tags);
 
 	return (
-		<>
+		<div itemScope itemType='http://schema.org/BlogPosting'>
 			{router.isFallback ? (
 				<div>Loading...</div>
 			) : (
@@ -89,14 +89,18 @@ export default function Post({ post }) {
 					/>
 
 					<header>
-						<p className='mb-0 font-bold text-sm'>
+						<p
+							className='mb-0 font-bold text-sm'
+							itemProp='datePublished'
+							content={post.slug}
+						>
 							{theDateString(post.slug)}
 						</p>
-						<h1 className='my-0 uppercase'>
+						<h1 className='my-0 uppercase' itemProp='name'>
 							{dayTitle(post.slug)}
 						</h1>
 						{post.tags !== undefined && (
-							<p>
+							<p itemProp='keywords'>
 								{post.tags.map((tag) => (
 									<Link
 										href={'/tags/' + stringToSlug(tag)}
@@ -118,6 +122,7 @@ export default function Post({ post }) {
 						dangerouslySetInnerHTML={{
 							__html: post.renderedContent,
 						}}
+						itemProp='articleBody'
 					/>
 
 					<GetEpisode date={post.slug} />
@@ -195,7 +200,7 @@ export default function Post({ post }) {
 					</footer>
 				</PageLayout>
 			)}
-		</>
+		</div>
 	);
 }
 

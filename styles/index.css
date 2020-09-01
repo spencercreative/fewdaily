@@ -54,13 +54,12 @@ p > code {
     @apply rounded-md;
 }
 
-pre {
-    @apply bg-gray;
+pre code,
+pre code.hljs {
     @apply p-4;
     @apply mb-8;
     @apply rounded-md;
-    @apply text-sm;
-    @apply bg-opacity-50;
+    @apply text-base;
 }
 
 a,

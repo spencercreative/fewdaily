@@ -423,6 +423,10 @@ article.sunday *::-moz-selection {
 	left: -999%;
 }
 
+#assets a {
+	box-shadow: none;
+}
+
 #assets h2 {
 	@apply my-6;
 	@apply text-2xl;

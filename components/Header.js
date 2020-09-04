@@ -93,9 +93,17 @@ function Header({ day, router }) {
 				id='header-home'
 				className='flex-1 px-4 text-center uppercase sm:text-2xl'
 			>
-				<Link href='/'>
-					<a className='leading-none'>Front-End Web Daily</a>
-				</Link>
+				{router.pathname === '/' || router.pathname === '/all' ? (
+					<h1 className='text-base sm:text-2xl m-0 leading-none inline-block'>
+						<Link href='/'>
+							<a className='leading-none'>Front-End Web Daily</a>
+						</Link>
+					</h1>
+				) : (
+					<Link href='/'>
+						<a className='leading-none'>Front-End Web Daily</a>
+					</Link>
+				)}
 			</div>
 
 			<button

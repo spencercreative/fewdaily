@@ -9,7 +9,11 @@ import Sponsor from 'components/Sponsor';
 export default function Home({ allPosts }) {
 	return (
 		<MainLayout day={getCurrentDay()}>
-			<MetaHead day={getCurrentDay()} />
+			<MetaHead
+				title='All Posts'
+				description='The complete archive of posts from Front-End Web Daily.'
+				day={getCurrentDay()}
+			/>
 			<Sponsor />
 			{allPosts.length > 0 && (
 				<>

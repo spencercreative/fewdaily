@@ -22,11 +22,8 @@ export default function Post({ posts, slug }) {
 					<article className='mx-auto'>
 						<MetaHead
 							title={'Posts tagged with "' + slug + '"'}
-							description={
-								'All posts tagged with "' + dayTitle(slug) + '"'
-							}
+							description={'All posts tagged with "' + slug + '"'}
 							day={getCurrentDay()}
-							type='article'
 						/>
 						<h1 className='text-3xl text-center mt-0 mb-8 font-bold'>
 							Post{posts.length > 1 && 's'} Tagged with "{slug}"

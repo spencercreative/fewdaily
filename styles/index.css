@@ -54,7 +54,8 @@ p > code {
 	@apply bg-gray;
 	@apply text-lg;
 	@apply px-2;
-	@apply py-1;
+	padding-top: 0.1rem;
+	padding-bottom: 0.1rem;
 	@apply bg-opacity-50;
 	@apply rounded-md;
 }
@@ -423,12 +424,21 @@ article.sunday *::-moz-selection {
 	left: -999%;
 }
 
+#assets .asset-content > *:first-child {
+	@apply mt-0;
+}
+
+#assets .asset-content > *:last-child {
+	@apply mb-0;
+}
+
 #assets a {
 	box-shadow: none;
 }
 
 #assets h2 {
-	@apply my-6;
+	@apply mb-4;
+	@apply mt-0;
 	@apply text-2xl;
 	hyphens: none;
 }

@@ -8,7 +8,7 @@ import { getPostBySlug, getAllPosts } from 'lib/api';
 import markdownToHtml from 'lib/markdownToHtml';
 import {
 	theNamedDay,
-	makeExcerpt,
+	makeExcerptString,
 	dayTitle,
 	theDateString,
 	transcriptText,
@@ -51,7 +51,7 @@ export default function Post({ post }) {
 							description={
 								post.excerpt !== undefined
 									? post.excerpt
-									: makeExcerpt(post.content)
+									: makeExcerptString(post.content)
 							}
 							day={theNamedDay([post.slug])}
 						/>

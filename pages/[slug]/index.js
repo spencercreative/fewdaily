@@ -9,7 +9,7 @@ import markdownToHtml from 'lib/markdownToHtml';
 import {
 	theNamedDay,
 	stringToSlug,
-	makeExcerpt,
+	makeExcerptString,
 	dayTitle,
 	theDateString,
 	hashtagList,
@@ -66,7 +66,9 @@ export default function Post({ post }) {
 	var url = 'https://fewdaily.com/' + post.slug;
 
 	var excerpt =
-		post.excerpt !== undefined ? post.excerpt : makeExcerpt(post.content);
+		post.excerpt !== undefined
+			? post.excerpt
+			: makeExcerptString(post.content);
 
 	var hashtags = hashtagList(post.tags);
 

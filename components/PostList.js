@@ -2,10 +2,10 @@ import Link from 'next/link';
 import {
 	theNamedDay,
 	stringToSlug,
-	makeExcerpt,
 	dayTitle,
 	listDate,
 	getCurrentDay,
+	makeExcerptString,
 } from 'lib/helpers';
 import { sponsors } from 'lib/sponsors';
 
@@ -128,7 +128,7 @@ export default function PostList(props) {
 									itemProp='about'
 								>
 									{theNamedDay(post.slug) !== 'tuesday'
-										? makeExcerpt(post.content)
+										? makeExcerptString(post.content)
 										: post.excerpt}
 								</p>
 							</header>
@@ -188,7 +188,7 @@ export default function PostList(props) {
 								slug={post.slug}
 								excerpt={
 									theNamedDay(post.slug) !== 'tuesday'
-										? makeExcerpt(post.content)
+										? makeExcerptString(post.content)
 										: post.excerpt
 								}
 								tags={post.tags !== undefined && post.tags}
@@ -199,7 +199,7 @@ export default function PostList(props) {
 							slug={post.slug}
 							excerpt={
 								theNamedDay(post.slug) !== 'tuesday'
-									? makeExcerpt(post.content)
+									? makeExcerptString(post.content)
 									: post.excerpt
 							}
 							tags={post.tags !== undefined && post.tags}

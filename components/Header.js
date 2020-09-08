@@ -151,8 +151,8 @@ function Header({ day, router }) {
 					/>
 					<SocialLink
 						icon={<FiMic className='stroke-1-1/2' />}
-						to='https://anchor.fm/fewdaily'
-						title='Podcast on Anchor.fm'
+						to='https://podcasts.apple.com/us/podcast/front-end-web-daily/id1503152359'
+						title='Podcast on Apple Podcasts'
 					/>
 				</ul>
 			</nav>

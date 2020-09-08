@@ -13,6 +13,7 @@ import {
 	dayTitle,
 	theDateString,
 	zipImages,
+	makeExcerptString
 } from 'lib/helpers';
 
 function SocialImage(props) {
@@ -27,45 +28,67 @@ function SocialImage(props) {
 			<RenderAsImage>
 				<div
 					className={
-						'instagram p-10 flex text-sm relative' +
-						' bg-' +
+						'flex flex-col relative text-slate bg-' +
 						theNamedDay([props.post.slug])
 					}
 					style={{ width: props.width, height: props.height }}
 				>
-					<span
-						className={
-							'top-0 left-0 uppercase' + ' ' + cornerStyles
-						}
-					>
-						Front-End Web Daily
-					</span>
-					<span
-						className={
-							'top-0 right-0 uppercase' + ' ' + cornerStyles
-						}
-					>
-						{theDateString(props.post.slug)}
-					</span>
-					<div
-						className={
-							props.className !== undefined
-								? props.className
-								: undefined
-						}
-					>
-						{props.children}
+					<div className='flex' style={{ height: '5%' }}>
+						<div className='bg-monday flex-1'></div>
+						<div className='bg-tuesday flex-1'></div>
+						<div className='bg-wednesday flex-1'></div>
+						<div className='bg-thursday flex-1'></div>
+						<div className='bg-friday flex-1'></div>
+						<div className='bg-saturday flex-1'></div>
+						<div className='bg-sunday flex-1'></div>
 					</div>
-					<span
-						className={
-							'bottom-0 left-0 uppercase' + ' ' + cornerStyles
-						}
-					>
-						More at fewdaily.com
-					</span>
-					<span className={'bottom-0 right-0' + ' ' + cornerStyles}>
-						@fewdaily
-					</span>
+					<div className='flex-1 h-full w-full flex flex-col items-center justify-center p-10 relative'>
+						<div className='absolute top-0 left-0 w-full px-10'>
+							<div className='flex justify-between border-b border-solid border-slate py-3'>
+								{props.data !== undefined ? (
+									<span className='text-3xl py-4 whitespace-no-wrap'>
+										Front-End Web Daily
+									</span>
+								) : (
+									<span className='text-3xs'>
+										Front-End Web Daily
+									</span>
+								)}
+
+								{props.data !== undefined ? (
+									<span className='text-3xl py-4 font-black whitespace-no-wrap'>
+										{theDateString(props.post.slug)}
+									</span>
+								) : (
+									<span className='text-3xs font-black'>
+										{theDateString(props.post.slug)}
+									</span>
+								)}
+							</div>
+						</div>
+						<div
+							className={
+								'asset-content ' + props.className !== undefined
+									? props.className
+									: undefined
+							}
+						>
+							{props.children}
+						</div>
+						<div className='absolute bottom-0 left-0 w-full px-10'>
+							<div className='flex justify-center border-t border-solid border-slate py-3'>
+								{props.data !== undefined ? (
+									<span className='text-3xl py-4 whitespace-no-wrap'>
+										fewdaily.com
+									</span>
+								) : (
+									<span className='text-3xs'>
+										fewdaily.com
+									</span>
+								)}
+							</div>
+						</div>
+					</div>
 				</div>
 			</RenderAsImage>
 		</div>
@@ -113,26 +136,16 @@ export default function Assets({ post }) {
 									post={post}
 									width='500px'
 									height='500px'
+									className='justify-center items-center flex flex-col text-center'
 								>
-									<h3 className='m-0 uppercase text-4xl my-6'>
+									<span className='uppercase bg-slate py-1 px-2 text-white text-sm font-black whitespace-no-wrap'>
 										{dayTitle(post.slug)}
+									</span>
+									<h3 className='text-2xxl mt-4 mb-0 leading-tight'>
+										{post.excerpt !== undefined
+											? post.excerpt
+											: makeExcerptString(post.content)}
 									</h3>
-									{post.excerpt !== undefined ? (
-										<h4 className='text-xl mt-0 mb-3'>
-											{post.excerpt}
-										</h4>
-									) : (
-										makeExcerpt(post.content)
-											.split(', ')
-											.map((element, index) => (
-												<h4
-													className='text-xl mt-0 mb-3'
-													key={index}
-												>
-													{element.trim()}
-												</h4>
-											))
-									)}
 								</SocialImage>
 
 								{post.excerpt === undefined &&
@@ -145,8 +158,9 @@ export default function Assets({ post }) {
 												key={index}
 											>
 												<div
+													className='asset-content text-sm'
 													dangerouslySetInnerHTML={{
-														__html: element,
+														__html: element
 													}}
 												/>
 											</SocialImage>
@@ -158,8 +172,8 @@ export default function Assets({ post }) {
 									width='500px'
 									height='500px'
 								>
-									<div className='h-full flex items-center'>
-										<h3 className='m-0 uppercase text-4xl'>
+									<div className='h-full flex items-center justify-center text-center'>
+										<h3 className='m-0 uppercase text-4xl leading-none'>
 											{post.excerpt !== undefined
 												? 'View post on our website'
 												: 'Check Back Tomorrow'}
@@ -192,26 +206,16 @@ export default function Assets({ post }) {
 									post={post}
 									width='360px'
 									height='640px'
+									className='justify-center items-center flex flex-col text-center'
 								>
-									<h3 className='m-0 uppercase text-3xl my-6'>
+									<span className='uppercase bg-slate py-1 px-2 text-white text-sm font-black whitespace-no-wrap'>
 										{dayTitle(post.slug)}
+									</span>
+									<h3 className='text-2xl mt-4 mb-0 leading-tight'>
+										{post.excerpt !== undefined
+											? post.excerpt
+											: makeExcerptString(post.content)}
 									</h3>
-									{post.excerpt !== undefined ? (
-										<h4 className='text-xl mt-0 mb-3'>
-											{post.excerpt}
-										</h4>
-									) : (
-										makeExcerpt(post.content)
-											.split(', ')
-											.map((element, index) => (
-												<h4
-													className='text-xl mt-0 mb-3'
-													key={index}
-												>
-													{element.trim()}
-												</h4>
-											))
-									)}
 								</SocialImage>
 
 								{post.excerpt === undefined &&
@@ -224,8 +228,9 @@ export default function Assets({ post }) {
 												key={index}
 											>
 												<div
+													className='asset-content text-sm'
 													dangerouslySetInnerHTML={{
-														__html: element,
+														__html: element
 													}}
 												/>
 											</SocialImage>
@@ -237,8 +242,8 @@ export default function Assets({ post }) {
 									width='360px'
 									height='640px'
 								>
-									<div className='h-full flex items-center'>
-										<h3 className='m-0 uppercase text-3xl'>
+									<div className='h-full flex items-center justify-center text-center'>
+										<h3 className='m-0 uppercase text-3xl leading-none'>
 											{post.excerpt !== undefined
 												? 'View post on our website'
 												: 'Check Back Tomorrow'}
@@ -271,31 +276,16 @@ export default function Assets({ post }) {
 									post={post}
 									width='640px'
 									height='360px'
-									className='flex-1'
+									className='justify-center items-center flex flex-col text-center'
 								>
-									<div className='h-full flex items-center w-full'>
-										<h3 className='mr-10 ml-0 uppercase text-3xl my-6 w-1/2 text-right'>
-											{dayTitle(post.slug)}
-										</h3>
-										<div className='w-1/2'>
-											{post.excerpt !== undefined ? (
-												<h4 className='text-xl mt-0 mb-3'>
-													{post.excerpt}
-												</h4>
-											) : (
-												makeExcerpt(post.content)
-													.split(', ')
-													.map((element, index) => (
-														<h4
-															className='text-xl mt-0 mb-3'
-															key={index}
-														>
-															{element.trim()}
-														</h4>
-													))
-											)}
-										</div>
-									</div>
+									<span className='uppercase bg-slate py-1 px-2 text-white text-sm font-black whitespace-no-wrap'>
+										{dayTitle(post.slug)}
+									</span>
+									<h3 className='text-2xxl mt-4 mb-0 leading-tight'>
+										{post.excerpt !== undefined
+											? post.excerpt
+											: makeExcerptString(post.content)}
+									</h3>
 								</SocialImage>
 
 								{post.excerpt === undefined &&
@@ -309,8 +299,9 @@ export default function Assets({ post }) {
 												key={index}
 											>
 												<div
+													className='asset-content text-sm'
 													dangerouslySetInnerHTML={{
-														__html: element,
+														__html: element
 													}}
 												/>
 											</SocialImage>
@@ -321,10 +312,9 @@ export default function Assets({ post }) {
 									post={post}
 									width='640px'
 									height='360px'
-									className='flex-1'
 								>
-									<div className='h-full flex items-center w-full'>
-										<h3 className='m-0 uppercase text-3xl w-full text-center'>
+									<div className='h-full flex items-center justify-center text-center'>
+										<h3 className='m-0 uppercase text-4xl leading-none'>
 											{post.excerpt !== undefined
 												? 'View post on our website'
 												: 'Check Back Tomorrow'}
@@ -346,6 +336,44 @@ export default function Assets({ post }) {
 								</button>
 							</div>
 						</section>
+
+						<hr />
+
+						<section>
+							<h3 className='text-center'>Other</h3>
+
+							<div className='text-center' id='other-assets'>
+								<SocialImage
+									post={post}
+									width='1400px'
+									height='1400px'
+									className='justify-center items-center flex flex-col text-center px-10'
+									data='lg'
+								>
+									<div className='uppercase bg-slate py-1 px-2 inline-block text-white text-4xl font-black whitespace-no-wrap'>
+										{dayTitle(post.slug)}
+									</div>
+									<h3 className='text-7xl mt-4 mb-0 leading-tight'>
+										{post.excerpt !== undefined
+											? post.excerpt
+											: makeExcerptString(post.content)}
+									</h3>
+								</SocialImage>
+							</div>
+
+							<div className='flex justify-center my-8'>
+								<button
+									onClick={() =>
+										zipImages(
+											'other-assets',
+											post.slug + '_other'
+										)
+									}
+								>
+									Download Other Files
+								</button>
+							</div>
+						</section>
 					</article>
 				</PageLayout>
 			)}
@@ -357,14 +385,14 @@ export async function getStaticPaths() {
 	const posts = getAllPosts(['slug']);
 
 	return {
-		paths: posts.map((post) => {
+		paths: posts.map(post => {
 			return {
 				params: {
-					slug: post.slug,
-				},
+					slug: post.slug
+				}
 			};
 		}),
-		fallback: false,
+		fallback: false
 	};
 }
 
@@ -375,7 +403,7 @@ export async function getStaticProps({ params }) {
 		'podcast',
 		'content',
 		'tags',
-		'excerpt',
+		'excerpt'
 	]);
 	const renderedContent = await markdownToHtml(post.content || '');
 
@@ -383,8 +411,8 @@ export async function getStaticProps({ params }) {
 		props: {
 			post: {
 				...post,
-				renderedContent,
-			},
-		},
+				renderedContent
+			}
+		}
 	};
 }

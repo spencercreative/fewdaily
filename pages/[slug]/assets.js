@@ -350,7 +350,7 @@ export default function Assets({ post }) {
 									className='justify-center items-center flex flex-col text-center px-10'
 									data='lg'
 								>
-									<div className='uppercase bg-slate py-1 px-2 inline-block text-white text-4xl font-black whitespace-no-wrap'>
+									<div className='uppercase bg-slate py-1 px-2 inline-block text-white text-4xl font-black whitespace-no-wrap max-w-full'>
 										{dayTitle(post.slug)}
 									</div>
 									<h3 className='text-7xl mt-4 mb-0 leading-tight'>

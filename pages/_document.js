@@ -20,7 +20,6 @@ class MyDocument extends Document {
 					<Main />
 					<NextScript />
 					<script src='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js'></script>
-					<script>hljs.initHighlightingOnLoad();</script>
 				</body>
 			</Html>
 		);

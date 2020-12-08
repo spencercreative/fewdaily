@@ -4,6 +4,7 @@ import MetaHead from 'components/MetaHead';
 import ErrorPage from 'next/error';
 import PageLayout from 'layouts/PageLayout';
 import Sponsor from 'components/Sponsor';
+import startHighlight from 'lib/syntaxHighlighting'
 import { getPostBySlug, getAllPosts } from 'lib/api';
 import markdownToHtml from 'lib/markdownToHtml';
 import {
@@ -57,7 +58,7 @@ const AssetsLink = (props) => (
 );
 
 export default function Post({ post }) {
-	const router = useRouter();
+    const router = useRouter();
 
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />;
@@ -70,7 +71,9 @@ export default function Post({ post }) {
 			? post.excerpt
 			: makeExcerptString(post.content);
 
-	var hashtags = hashtagList(post.tags);
+    var hashtags = hashtagList(post.tags);
+
+    startHighlight()
 
 	return (
 		<div itemScope itemType='http://schema.org/BlogPosting'>
@@ -117,7 +120,7 @@ export default function Post({ post }) {
 					</header>
 
 					<Sponsor day={theNamedDay([post.slug])} />
-
+                    
 					<div
 						className='mt-10 md:mt-16'
 						dangerouslySetInnerHTML={{
@@ -253,7 +256,7 @@ export async function getStaticProps({ params }) {
 		'tags',
 		'podcast',
 	]);
-	const renderedContent = await markdownToHtml(post.content || '');
+    const renderedContent = await markdownToHtml(post.content || '');
 
 	return {
 		props: {

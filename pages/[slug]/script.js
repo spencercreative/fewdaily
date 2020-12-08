@@ -6,6 +6,7 @@ import ErrorPage from 'next/error';
 import PageLayout from 'layouts/PageLayout';
 import { getPostBySlug, getAllPosts } from 'lib/api';
 import markdownToHtml from 'lib/markdownToHtml';
+import startHighlight from 'lib/syntaxHighlighting'
 import {
 	theNamedDay,
 	makeExcerptString,
@@ -36,6 +37,8 @@ export default function Post({ post }) {
 			document.execCommand('copy');
 		}
 	}
+
+    startHighlight()
 
 	return (
 		<>

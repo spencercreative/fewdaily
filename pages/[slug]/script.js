@@ -38,7 +38,7 @@ export default function Post({ post }) {
 		}
 	}
 
-    startHighlight()
+    // startHighlight()
 
 	return (
 		<>

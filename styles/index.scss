@@ -1,0 +1,282 @@
+@import "~tailwindcss/base";
+
+/*
+------------------------------
+  Variables & Mixins
+------------------------------
+*/
+
+$days: (
+  'monday': theme('colors.blue'),
+  'tuesday': theme('colors.red'),
+  'wednesday': theme('colors.purple'),
+  'thursday': theme('colors.orange'),
+  'friday': theme('colors.green'),
+  'saturday': theme('colors.yellow'),
+  'sunday': theme('colors.gray'),
+);
+
+$width__mobile: 640px;
+$width__tablet: 768px;
+$width__desktop: 1024px;
+$width__wide: 1280px;
+
+$media_sizes: (
+	'sm': $width__mobile,
+	'md': $width__tablet,
+	'lg': $width__desktop,
+	'xl': $width__wide,
+);
+
+@mixin media($res) { // Responsive mixin
+  @each $size, $unit in $media_sizes {
+    @if $res == $size {
+      @media only screen and (min-width: $unit) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin print {
+  @media print {
+    @content;
+  }
+}
+
+/*
+------------------------------
+  Styles
+------------------------------
+*/
+
+:root {
+  @each $day, $color in $days { // Generate color variables
+    --#{$day}: #{$color};
+  }
+}
+
+html {
+	font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-sans font-black mb-4 mt-6 leading-tight;
+  @include media(md) {
+    @apply mt-10;
+  }
+}
+
+h1 {
+  @apply text-3xl;
+  @include media(md) {
+    @apply text-5xl;
+  }
+}
+
+h2 {
+	@apply text-2xl;
+  @include media(md) {
+    @apply text-4xl;
+  }
+}
+
+h3 {
+	@apply text-xl;
+  @include media(md) {
+    @apply text-3xl;
+  }
+}
+
+h4 {
+	@apply text-lg;
+  @include media(md) {
+    @apply text-2xl;
+  }
+}
+
+h5 {
+	@apply text-base;
+  @include media(md) {
+    @apply text-xl;
+  }
+}
+
+h6 {
+	@apply text-sm;
+  @include media(md) {
+    @apply text-lg;
+  }
+}
+
+p {
+  @apply mb-4;
+  @include media(md) {
+    @apply mb-8;
+  }
+
+  > code {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem bg-opacity-50 rounded-md;
+    @apply bg-gray text-lg px-2;
+  }
+}
+
+pre code,
+pre code.hljs {
+	@apply p-4 mb-8 rounded-md text-base;
+}
+
+a,
+button {
+	transition: box-shadow ease 0.3s;
+  @apply bg-transparent cursor-pointer relative z-0;
+  @include print {
+		@apply underline shadow-none;
+  }
+}
+
+label {
+  @apply mb-4 block;
+
+  span {
+    @apply text-sm font-bold inline-block mb-2;
+  }
+}
+
+hr {
+	@apply border-gray my-8;
+}
+
+input,
+textarea {
+  @apply border border-solid border-gray rounded p-2 w-full bg-gray bg-opacity-25 text-base;
+
+  &:focus {
+    @apply bg-opacity-0;
+  }
+}
+
+input {
+
+  &[type='text'],
+  &[type='email'] {
+    -webkit-appearance: none;
+  }
+
+  &[type='checkbox'] {
+    @apply inline-block w-auto mr-2;
+  }
+
+  + button {
+    @apply font-bold uppercase;
+  }
+}
+
+textarea {
+  min-height: 200px;
+}
+
+#assets {
+
+  a {
+    @apply shadow-none;
+  }
+
+  img {
+    max-width: 300px;
+    @apply h-auto w-full mx-auto my-4;
+    @include media(sm) {
+      @apply mx-4;
+    }
+  }
+
+  h2 {
+    hyphens: none;
+    @apply mb-4 mt-0 text-2xl;
+  }
+
+  .asset-container > div {
+    left: -9999%;
+    @apply absolute;
+  }
+
+  .asset-content {
+
+    > *:first-child {
+      @apply mt-0;
+    }
+
+    > *:last-child {
+      @apply mb-0;
+    }
+  }
+}
+
+#podcast-episode {
+  height: 98px;
+
+  @media screen and (min-width: 865px) {
+    height: 161px;
+  }
+}
+
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+
+@each $day, $colors in $days { // Generate colors
+
+  .#{$day} a,
+  .#{$day} button,
+  main .#{$day} a,
+  main .#{$day} button,
+  header[role='banner'] .#{$day} a,
+  header[role='banner'] .#{$day} button {
+    box-shadow: inset 0 -0.15em 0 var(--#{$day});
+  }
+
+  .#{$day} a:hover,
+  .#{$day} button:hover,
+  main .#{$day} a:hover,
+  main .#{$day} button:hover,
+  header[role='banner'] .#{$day} a:hover,
+  header[role='banner'] .#{$day} button:hover {
+    box-shadow: inset 0 -0.4em 0 var(--#{$day});
+  }
+
+  .bg-#{$day} {
+    background-color: var(--#{$day});
+  }
+
+  .#{$day} *::selection {
+    background-color: var(--#{$day});
+  }
+
+  .#{$day} *::-moz-selection {
+    background-color: var(--#{$day});
+  }
+
+  article.#{$day} *::selection {
+    background-color: var(--#{$day});
+  }
+
+  article.#{$day} *::-moz-selection {
+    background-color: var(--#{$day});
+  }
+
+  .bg-#{$day} a,
+  .bg-#{$day} button {
+    box-shadow: inset 0 -0.15em 0 theme('colors.white');
+  }
+
+  .bg-#{$day} a:hover,
+  .bg-#{$day} button:hover {
+    box-shadow: inset 0 -0.4em 0 theme('colors.white');
+  }
+
+}

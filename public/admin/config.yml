@@ -28,3 +28,11 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
+    sortable_fields: ['date']
+    view_filters:
+      - label: "2020"
+        field: date
+        pattern: '2020'
+      - label: "2021"
+        field: date
+        pattern: '2021'

@@ -5,6 +5,7 @@ import ErrorPage from 'next/error';
 import PageLayout from 'layouts/PageLayout';
 import Sponsor from 'components/Sponsor';
 import startHighlight from 'lib/syntaxHighlighting'
+import { GetEpisode } from 'lib/podcastRss';
 import { getPostBySlug, getAllPosts } from 'lib/api';
 import markdownToHtml from 'lib/markdownToHtml';
 import {
@@ -129,31 +130,7 @@ export default function Post({ post }) {
 						itemProp='articleBody'
 					/>
 
-					{post.podcast !== undefined && (
-						<div className='border-t border-solid border-gray mt-10 md:mt-16 py-10 print:hidden'>
-							<h3 className='mt-0 mb-6 leading-none'>
-								Listen to the episode!
-							</h3>
-							<div
-								style={{
-									width: '100%',
-									height: '170px',
-									marginBottom: '20px',
-									borderRadius: '10px',
-									overflow: 'hidden',
-								}}
-							>
-								<iframe
-									style={{ width: '100%', height: '170px' }}
-									frameBorder='no'
-									allow='autoplay'
-									scrolling='no'
-									seamless
-									src={post.podcast}
-								></iframe>
-							</div>
-						</div>
-					)}
+                    <GetEpisode date={post.slug} />
 
 					<footer className='border-t border-solid border-gray py-4 flex justify-between print:hidden'>
 						<div>
@@ -254,7 +231,6 @@ export async function getStaticProps({ params }) {
 		'excerpt',
 		'content',
 		'tags',
-		'podcast',
 	]);
     const renderedContent = await markdownToHtml(post.content || '');
 

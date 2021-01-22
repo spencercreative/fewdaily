@@ -40,50 +40,41 @@ const Sponsorships = (props) => (
 					{!loading && !success && (
 						<div>
 							<label>
-								<span className='sr-only'>Name *</span>
+								<span>Name *</span>
 								<input
 									type='text'
 									name='name'
 									required
-									placeholder='Name *'
-									className='rounded-b-none border-b-0'
 								/>
 							</label>
 							<label>
-								<span className='sr-only'>Email *</span>
+								<span>Email *</span>
 								<input
 									type='email'
 									name='email'
 									required
-									placeholder='Email *'
-									className='rounded-none border-b-0'
 								/>
 							</label>
 							<label>
-								<span className='sr-only'>Company *</span>
+								<span>Company *</span>
 								<input
 									type='text'
 									name='company'
 									required
-									placeholder='Company *'
-									className='rounded-none border-b-0'
 								/>
 							</label>
 							<label>
-								<span className='sr-only'>Phone Number *</span>
+								<span>Phone Number *</span>
 								<input
 									type='tel'
 									name='phone'
 									required
-									placeholder='Phone Number *'
-									className='rounded-none border-b-0'
 								/>
 							</label>
 							<fieldset
-								className='bg-gray bg-opacity-25 border border-solid border-gray border-b-0 relative p-2 pt-12 text-base'
-								style={{ color: 'darkGray' }}
+								className='relative text-base'
 							>
-								<legend className='text-base absolute top-0 left-0 m-2 text-gray-900'>
+								<legend className='mb-4 font-bold text-sm'>
 									What promotion opportunities are you
 									interested in? *
 								</legend>
@@ -106,11 +97,10 @@ const Sponsorships = (props) => (
 								</label>
 							</fieldset>
 							<label>
-								<span className='sr-only'>Message</span>
+								<span>Message</span>
 								<textarea
 									name='message'
 									placeholder='Message'
-									className='rounded-t-none min-h-screen-25'
 								/>
 							</label>
 							<button className='mt-1 font-bold uppercase'>

@@ -36,68 +36,30 @@ const Submit = (props) => (
 					{!loading && !success && (
 						<div>
 							<label>
-								<span className='sr-only'>Name *</span>
-								<input
-									type='text'
-									name='name'
-									required
-									placeholder='Name *'
-									className='rounded-b-none border-b-0'
-								/>
+								<span>Name *</span>
+								<input type='text' name='name' required />
 							</label>
 							<label>
-								<span className='sr-only'>Email *</span>
-								<input
-									type='email'
-									name='email'
-									required
-									placeholder='Email *'
-									className='rounded-none border-b-0'
-								/>
+								<span>Email *</span>
+								<input type='email' name='email' required />
 							</label>
 							<label>
-								<span className='sr-only'>Link to Story *</span>
-								<input
-									type='text'
-									name='link'
-									required
-									placeholder='Link to Story *'
-									className='rounded-none border-b-0'
-								/>
+								<span>Link to Story *</span>
+								<input type='text' name='link' required />
 							</label>
 							<label>
-								<span className='sr-only'>Twitter Handle</span>
-								<input
-									type='text'
-									name='link'
-									required
-									placeholder='Twitter Handle'
-									className='rounded-none border-b-0'
-								/>
+								<span>Twitter Handle</span>
+								<input type='text' name='link' />
 							</label>
 							<label>
-								<span className='sr-only'>
-									Instagram Handle
-								</span>
-								<input
-									type='text'
-									name='link'
-									required
-									placeholder='Instagram Handle'
-									className='rounded-none border-b-0'
-								/>
+								<span>Instagram Handle</span>
+								<input type='text' name='link' />
 							</label>
 							<label>
-								<span className='sr-only'>Message</span>
-								<textarea
-									name='message'
-									placeholder='Message'
-									className='rounded-t-none min-h-screen-25'
-								/>
+								<span>Message</span>
+								<textarea name='message' />
 							</label>
-							<button className='mt-1 font-bold uppercase'>
-								Submit
-							</button>
+							<button type="submit">Submit</button>
 						</div>
 					)}
 				</div>

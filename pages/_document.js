@@ -15,6 +15,7 @@ class MyDocument extends Document {
 						rel='stylesheet'
 						href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/a11y-dark.min.css'
 					/>
+                    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 				</Head>
 				<body className='relative overflow-x-hidden w-full min-h-full text-slate font-sans md:text-xl'>
 					<Main />

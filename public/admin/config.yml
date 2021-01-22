@@ -8,7 +8,7 @@ collections:
   - name: "posts" # Used in routes, e.g., /admin/collections/posts
     label: "Posts" # Used in the UI
     label_singular: "Post"
-    identifier_field: body
+    identifier_field: date
     folder: "_posts" # The path to the folder where the markdown files are stored
     create: true # Allow users to create new markdown files.
     slug: "{{year}}-{{month}}-{{day}}" # Filename template, e.g., YYYY-MM-DD.md

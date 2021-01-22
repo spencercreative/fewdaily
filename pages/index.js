@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Link from 'next/link';
 import MainLayout from 'layouts/MainLayout';
 import { getCurrentDay } from 'lib/helpers';
@@ -11,6 +12,17 @@ import { FiArrowRight } from 'react-icons/fi';
 const postListMax = 20;
 
 export default function Home({ allPosts }) {
+    useEffect(()=>{
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", user => {
+            if (!user) {
+              window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+              });
+            }
+          });
+        }
+    },[])
 	return (
 		<MainLayout day={getCurrentDay()}>
 			<MetaHead day={getCurrentDay()} />

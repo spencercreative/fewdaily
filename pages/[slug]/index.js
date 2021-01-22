@@ -73,7 +73,7 @@ export default function Post({ post }) {
 
     var hashtags = hashtagList(post.tags);
 
-    startHighlight()
+    // startHighlight()
 
 	return (
 		<div itemScope itemType='http://schema.org/BlogPosting'>

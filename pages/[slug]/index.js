@@ -121,7 +121,7 @@ export default function Post({ post }) {
 					</header>
 
 					<Sponsor day={theNamedDay([post.slug])} />
-                    
+
 					<div
 						className='mt-10 md:mt-16'
 						dangerouslySetInnerHTML={{
@@ -130,7 +130,7 @@ export default function Post({ post }) {
 						itemProp='articleBody'
 					/>
 
-                    <GetEpisode date={post.slug} />
+          <GetEpisode date={post.slug} />
 
 					<footer className='border-t border-solid border-gray py-4 flex justify-between print:hidden'>
 						<div>

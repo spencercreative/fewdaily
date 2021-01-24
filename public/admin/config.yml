@@ -9,11 +9,12 @@ collections:
   - name: 'posts'
     label: 'Posts'
     label_singular: 'Post'
-    summary: "{{filename}}"
+    summary: '{{filename}}'
     folder: '_posts'
     create: true
     delete: false
-    slug: "{{fields.date}}"
+    slug: '{{fields.date}}'
+    preview_path: '{{slug}}'
     sortable_fields: ['date']
     view_filters:
       - label: '2020'

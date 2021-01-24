@@ -9,11 +9,11 @@ collections:
   - name: 'posts'
     label: 'Posts'
     label_singular: 'Post'
-    summary: "{{fields.date | date('YYYY-MM-DD')}}"
+    summary: "{{fields.date}}"
     folder: '_posts'
     create: true
     delete: false
-    slug: "{{fields.date | date('YYYY-MM-DD')}}"
+    slug: "{{fields.date}}"
     sortable_fields: ['date']
     view_filters:
       - label: '2020'
@@ -28,8 +28,8 @@ collections:
         widget: 'datetime'
         hint: 'Date the post will be published (only one post per day)'
         date_format: 'YYYY-MM-DD'
-        time_format: 'HH:mm'
-        format: 'YYYY-MM-DD HH:mm'
+        time_format: false
+        format: 'YYYY-MM-DD'
       - label: 'Tags'
         name: 'tags'
         widget: 'list'

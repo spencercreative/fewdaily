@@ -210,7 +210,7 @@ export default function Post({ post }) {
 }
 
 export async function getStaticPaths() {
-	const posts = getAllPosts(['slug']);
+	const posts = getAllPosts(['slug'], true);
 
 	return {
 		paths: posts.map((post) => {

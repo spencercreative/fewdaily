@@ -12,7 +12,7 @@ export default function ListSearch() {
 		<>
 			<div className='mb-4 flex items-center flex-col md:flex-row print:hidden'>
 				<label
-					className='my-0 mr-4 font-black text-base'
+					className='my-0 mr-4 font-black text-base sr-only'
 					htmlFor='list-search'
 				>
 					Search:

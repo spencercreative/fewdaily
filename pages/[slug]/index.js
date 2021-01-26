@@ -238,8 +238,9 @@ export async function getStaticProps({ params }) {
 		'excerpt',
 		'content',
 		'tags',
-	]);
-    const renderedContent = await markdownToHtml(post.content || '');
+  ]);
+
+  const renderedContent = markdownToHtml(post.content || '');
 
 	return {
 		props: {

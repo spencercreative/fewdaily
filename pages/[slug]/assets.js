@@ -405,7 +405,7 @@ export async function getStaticProps({ params }) {
 		'tags',
 		'excerpt'
 	]);
-	const renderedContent = await markdownToHtml(post.content || '');
+	const renderedContent = markdownToHtml(post.content || '');
 
 	return {
 		props: {

@@ -23,9 +23,9 @@ const Footer = (props) => (
 				<a>Front-End Web Daily</a>
 			</Link>
 			. All rights reserved. |{' '}
-			<a href='/feed.xml' target='_blank'>
-				Feed
-			</a>
+      <Link href='/feed'>
+				<a target="_blank">Feed</a>
+			</Link>
 		</p>
 		<Link href='/sponsorships'>
 			<a className='flex items-center mx-auto md:mx-0'>

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import MetaHead from 'components/MetaHead';
@@ -6,7 +6,6 @@ import ErrorPage from 'next/error';
 import PageLayout from 'layouts/PageLayout';
 import { getPostBySlug, getAllPosts } from 'lib/api';
 import markdownToHtml from 'lib/markdownToHtml';
-import startHighlight from 'lib/syntaxHighlighting'
 import {
 	theNamedDay,
 	makeExcerptString,
@@ -16,6 +15,11 @@ import {
 	headingList,
 } from 'lib/helpers';
 import { FiCopy } from 'react-icons/fi';
+import hljs from 'highlight.js/lib/core'
+
+hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'))
+hljs.registerLanguage('css', require('highlight.js/lib/languages/css'))
+hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'))
 
 export default function Post({ post }) {
 	const router = useRouter();
@@ -38,7 +42,9 @@ export default function Post({ post }) {
 		}
 	}
 
-    // startHighlight()
+  useEffect(() => {
+    hljs.initHighlighting();
+  }, []);
 
 	return (
 		<>

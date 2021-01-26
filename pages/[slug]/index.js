@@ -1,10 +1,10 @@
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import MetaHead from 'components/MetaHead';
 import ErrorPage from 'next/error';
 import PageLayout from 'layouts/PageLayout';
 import Sponsor from 'components/Sponsor';
-import startHighlight from 'lib/syntaxHighlighting'
 import { GetEpisode } from 'lib/podcastRss';
 import { getPostBySlug, getAllPosts } from 'lib/api';
 import markdownToHtml from 'lib/markdownToHtml';
@@ -25,6 +25,11 @@ import {
 	FiMic,
 	FiPrinter,
 } from 'react-icons/fi';
+import hljs from 'highlight.js/lib/core'
+
+hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'))
+hljs.registerLanguage('css', require('highlight.js/lib/languages/css'))
+hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'))
 
 const SocialShare = (props) => (
 	<li className='mr-2'>
@@ -72,9 +77,11 @@ export default function Post({ post }) {
 			? post.excerpt
 			: makeExcerptString(post.content);
 
-    var hashtags = hashtagList(post.tags);
+  var hashtags = hashtagList(post.tags);
 
-    // startHighlight()
+  useEffect(() => {
+    hljs.initHighlighting();
+  }, []);
 
 	return (
 		<div itemScope itemType='http://schema.org/BlogPosting'>

@@ -122,8 +122,11 @@ p {
 
   > code {
     padding-top: 0.1rem;
-    padding-bottom: 0.1rem bg-opacity-50 rounded-md;
-    @apply bg-gray text-lg px-2;
+    padding-bottom: 0.1rem;
+    @apply bg-gray text-sm px-2 bg-opacity-50 rounded-md;
+    @include media(md) {
+      @apply text-base;
+    }
   }
 }
 

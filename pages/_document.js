@@ -11,11 +11,12 @@ class MyDocument extends Document {
 			<Html lang='en' className='overflow-x-hidden w-full min-h-full'>
 				<Head>
 					<meta name='theme-color' content='#282828' />
+          <link rel="alternate" type="application/rss+xml" title="RSS for posts" href="/feed" />
 					<link
 						rel='stylesheet'
 						href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/a11y-dark.min.css'
 					/>
-                    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+          <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 				</Head>
 				<body className='relative overflow-x-hidden w-full min-h-full text-slate font-sans md:text-xl'>
 					<Main />

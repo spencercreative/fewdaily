@@ -103,7 +103,7 @@ const Sponsorships = (props) => (
 									placeholder='Message'
 								/>
 							</label>
-							<button className='mt-1 font-bold uppercase'>
+							<button>
 								Submit
 							</button>
 						</div>

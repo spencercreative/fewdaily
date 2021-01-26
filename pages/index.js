@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import MainLayout from 'layouts/MainLayout';
-import { getCurrentDay } from 'lib/helpers';
+import { getCurrentDay, removeFuturePosts } from 'lib/helpers';
 import { getAllPosts } from 'lib/api';
 import PostList from 'components/PostList';
 import ListSearch from 'components/ListSearch';
@@ -23,6 +23,9 @@ export default function Home({ allPosts }) {
         });
       }
   },[])
+
+  allPosts = removeFuturePosts(allPosts)
+
 	return (
 		<MainLayout day={getCurrentDay()}>
 			<MetaHead day={getCurrentDay()} />

@@ -1,8 +1,8 @@
 import App from 'next/app';
 import TagManager from 'react-gtm-module';
-import 'fontsource-mulish/500.css';
-import 'fontsource-mulish/700.css';
-import 'fontsource-mulish/900.css';
+import '@fontsource/mulish/500.css';
+import '@fontsource/mulish/700.css';
+import '@fontsource/mulish/900.css';
 import '../styles/index.scss';
 
 const tagManagerArgs = {
